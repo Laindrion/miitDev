@@ -1,0 +1,232 @@
+@import '../../node_modules/swiper/swiper-bundle';
+@import '../../node_modules/reset.css/reset';
+@import url('https://fonts.googleapis.com/css2?family=Arsenal:wght@400;700&display=swap');
+@import '_fonts';
+
+/**********************
+    **********************
+        VARIABLES
+    **********************
+**********************/
+$white: #fff;
+$black: #000;
+$bg_dark: #051A3C;
+$link: #051A3C;
+$text: #656565;
+$title: #1F1F1F;
+$font_arsenal: 'Arsenal', sans-serif;
+$font_futura: 'Futura PT', sans-serif;
+
+
+/**********************
+    **********************
+        MIXINS
+    **********************
+**********************/
+@mixin font($fn, $fz, $fw, $lh, $clr) {
+    font-family: $fn;
+    font-size: $fz;
+    font-weight: $fw;
+    line-height: $lh;
+    color: $clr;
+}
+
+@mixin pseudo($url, $w, $h) {
+    content: '';
+    position: absolute;
+    background-image: $url;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: $w;
+    height: $h;
+}
+
+
+/**********************
+    **********************
+        TEMPLATES
+    **********************
+**********************/
+
+
+/**********************
+    **********************
+        GLOBAL
+    **********************
+**********************/
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    @include font($font_futura, 16, 400, 1.2, $text)
+}
+
+
+img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+a {
+    text-decoration: none;
+    color: $link;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.header {}
+
+.header.sticky {
+    width: 100%;
+    position: fixed;
+    top: 0;
+}
+
+.header.sticky+.main {
+    padding-top: 102px;
+}
+
+.footer {
+    margin-top: auto;
+}
+
+
+/**********************
+    **********************
+        NAVBAR TOP
+    **********************
+**********************/
+
+.logo {
+    max-width: 438px;
+}
+
+.navbar__top {
+    background: $white;
+    padding: 11px 0;
+
+    &-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &-item {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &-item a {
+        @include font($font_arsenal, 22px, 700, null, $title);
+        position: relative;
+    }
+
+    &-item-phone {
+        padding-left: 30px;
+    }
+
+    &-item-phone::before {
+        @include pseudo(url('../images/phone.svg'), 22px, 23px);
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%)
+    }
+
+    &-suptitle {
+        @include font(null, 15px, 400, 160%, null);
+    }
+
+    &-item-lang {
+        padding-right: 25px;
+        position: relative;
+    }
+
+    &-item-lang::after {
+        @include pseudo(url('../images/arrow-triangle-dark.svg'), 13px, 8px);
+        top: 50%;
+        right: 0;
+        transform: translate(-50%, -50%);
+    }
+
+    &-item-lang__inner {
+        position: absolute;
+        left: -10px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        background: $white;
+
+        height: 0;
+        overflow: hidden;
+        transition: .3s all;
+    }
+
+    &-item-lang__inner.active {
+        height: 95px;
+    }
+
+    &-item-lang__inner span {
+        padding: 10px;
+    }
+
+    &-item-lang__inner span:not(:last-child) {
+        border-bottom: 1px solid $black;
+    }
+}
+
+
+/**********************
+    **********************
+        NAVBAR
+    **********************
+**********************/
+.navbar {
+    background: $bg_dark;
+    padding: 22px 0;
+
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    & a {
+        color: $white;
+    }
+
+    &__inner {
+        display: flex;
+        gap: 39px;
+    }
+
+    .menu__list {
+        display: flex;
+        align-items: center;
+        gap: 31px;
+        justify-content: space-between;
+    }
+
+    &__inner-items {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    &__inner-items a.navbar__inner-item {
+        display: flex;
+        gap: 5px;
+        flex-direction: column;
+    }
+
+    &__inner-items a.navbar__inner-item span {
+        display: block;
+        width: 30px;
+        height: 4px;
+        background: $white;
+        border-radius: 10px;
+    }
+}
