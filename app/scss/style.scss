@@ -203,13 +203,6 @@ a {
         gap: 39px;
     }
 
-    .menu__list {
-        display: flex;
-        align-items: center;
-        gap: 31px;
-        justify-content: space-between;
-    }
-
     &__inner-items {
         display: flex;
         align-items: center;
@@ -228,5 +221,27 @@ a {
         height: 4px;
         background: $white;
         border-radius: 10px;
+    }
+}
+
+.menu__list {
+    @include font($font_arsenal, 18px, 700, 160%, $white);
+    display: flex;
+    align-items: center;
+    gap: 31px;
+    justify-content: space-between;
+
+    &-item {}
+
+    &-link {
+        position: relative;
+        padding-right: 35px;
+    }
+
+    &-link::after {
+        @include pseudo(url('../images/arrow-triangle.svg'), 14px, 8px);
+        right: 0;
+        top: 50%;
+        transform: translateX(-50%);
     }
 }
