@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <style>
+    #chartdiv {
+      width: 100%;
+      height: 300px;
+    }
+  </style>
+
+  <script src="//cdn.amcharts.com/lib/4/core.js"></script>
+  <script src="//cdn.amcharts.com/lib/4/charts.js"></script>
+  <script src="//cdn.amcharts.com/lib/4/themes/animated.js"></script>
+
+  <div id="chartdiv"></div>
+
+  <div id="piechart1" class="asset"></div>
+  <div id="piechart2" class="asset"></div>
+  <div id="piechart3" class="asset"></div>
+
+
+
+  <script>
+    /**
+ * ---------------------------------------
+ * This demo was created using amCharts 4.
+ *
+ * For more information visit:
+ * https://www.amcharts.com/
+ *
+ * Documentation is available at:
+ * https://www.amcharts.com/docs/v4/
+ * ---------------------------------------
+ */
+
+    am4core.useTheme(am4themes_animated);
+
+    var data = [{
+      "country": "Машина ва ускуналар: 2.2% (373.3)",
+      "units": 373.3,
+      "pie": [{
+        "value": 250,
+        "title": "Cat #1"
+      }, {
+        "value": 150,
+        "title": "Cat #2"
+      }, {
+        "value": 100,
+        "title": "Cat #3"
+      }]
+    }, {
+      "country": "Машина ва ускуналар: 2.2% (370.3)",
+      "units": 370.3,
+      "pie": [{
+        "value": 80,
+        "title": "Cat #1"
+      }, {
+        "value": 130,
+        "title": "Cat #2"
+      }, {
+        "value": 90,
+        "title": "Cat #3"
+      }]
+    }, {
+      "country": "Машина ва ускуналар: 2.2% (350)",
+      "units": 350,
+      "pie": [{
+        "value": 75,
+        "title": "Cat #1"
+      }, {
+        "value": 55,
+        "title": "Cat #2"
+      }, {
+        "value": 70,
+        "title": "Cat #3"
+      }]
+    }];
+
+
+    // Create chart instance
+    var chart = am4core.create("chartdiv", am4charts.XYChart);
+    chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+
+    // Add data
+    chart.data = data;
+
+    // Create axes
+    var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+    categoryAxis.dataFields.category = "country";
+    categoryAxis.renderer.grid.template.disabled = true;
+
+
+    var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+    valueAxis.min = 0;
+    valueAxis.renderer.baseGrid.disabled = true;
+    valueAxis.renderer.labels.template.disabled = true;
+    valueAxis.min = 0;
+    valueAxis.renderer.grid.template.strokeOpacity = 0;
+
+    chart.maskBullets = false;
+
+    chart.paddingBottom = 0;
+    // Create series
+    var series = chart.series.push(new am4charts.ColumnSeries());
+    series.dataFields.valueY = "units";
+    series.dataFields.categoryX = "country";
+    series.tooltip.pointerOrientation = "vertical";
+
+
+    var columnTemplate = series.columns.template;
+    // add tooltip on column, not template, so that slices could also have tooltip
+    columnTemplate.column.tooltipText = "{categoryX}\n{valueY}";
+    columnTemplate.column.tooltipY = 0;
+    columnTemplate.column.cornerRadiusTopLeft = 20;
+    columnTemplate.column.cornerRadiusTopRight = 20;
+    columnTemplate.strokeOpacity = 0;
+
+
+    // as by default columns of the same series are of the same color, we add adapter which takes colors from chart.colors color set
+    columnTemplate.adapter.add("fill", (fill, target) => {
+      var color = chart.colors.getIndex(target.dataItem.index * 3);
+      return color;
+    });
+
+    // create pie chart as a column child
+    var pieChart = series.columns.template.createChild(am4charts.PieChart);
+    pieChart.width = am4core.percent(80);
+    pieChart.height = am4core.percent(80);
+    pieChart.align = "center";
+    pieChart.valign = "middle";
+    pieChart.dataFields.data = "pie";
+
+    var pieSeries = pieChart.series.push(new am4charts.PieSeries());
+    pieSeries.dataFields.value = "value";
+    pieSeries.dataFields.category = "title";
+    pieSeries.labels.template.disabled = true;
+    pieSeries.ticks.template.disabled = true;
+    pieSeries.slices.template.stroke = am4core.color("#ffffff");
+    pieSeries.slices.template.strokeWidth = 1;
+    pieSeries.slices.template.strokeOpacity = 0;
+
+    pieSeries.slices.template.adapter.add("fill", (fill, target) => {
+      return am4core.color("#ffffff")
+    });
+
+    pieSeries.slices.template.adapter.add("fillOpacity", (fillOpacity, target) => {
+      return (target.dataItem.index + 1) * 0.2;
+    });
+
+    pieSeries.hiddenState.properties.startAngle = -90;
+    pieSeries.hiddenState.properties.endAngle = 270;
+  </script>
+</body>
+
+</html>

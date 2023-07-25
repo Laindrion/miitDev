@@ -18,13 +18,37 @@ $(document).ready(function () {
             header.classList.remove("sticky");
         }
     }
-
     /**********************
     **********************
         LANGUAGE BUTTON
-    **********************
+    *********************
     **********************/
     $('.navbar__top-item-lang').click(function () {
         $('.navbar__top-item-lang__inner').toggleClass('active')
     })
+
+    /**********************
+    **********************
+        HERO SLIDER
+      **********************
+      **********************/
+    $('.hero__slider').slick({
+        arrows: false,
+        dots: true,
+        fade: true
+    })
+
+
+    /**********************
+    **********************
+        HERO SLIDER
+      **********************
+      **********************/
+    $('.advantages__slider').slick({
+        arrows: false,
+        dots: true,
+        slidesToShow: 3
+    })
+
+
 });
