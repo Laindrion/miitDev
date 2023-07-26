@@ -33,7 +33,7 @@ $(document).ready(function () {
       **********************
       **********************/
     $('.hero__slider').slick({
-        arrows: false,
+        arrows: false, 
         dots: true,
         fade: true
     })
