@@ -47,8 +47,23 @@ $(document).ready(function () {
     $('.advantages__slider').slick({
         arrows: false,
         dots: true,
-        slidesToShow: 3
-    })
+        slidesToShow: 3,
+        responsive: [
+            {
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 2,
+                }
+            },
+            {
+                breakpoint: 770,
+                settings: {
+                    slidesToShow: 1,
+                }
+            },
+
+        ]
+    });
 
     /**********************
     **********************
@@ -60,7 +75,28 @@ $(document).ready(function () {
         dots: false,
         slidesToShow: 4,
         prevArrow: $('.links__arrows-left'),
-        nextArrow: $('.links__arrows-right')
+        nextArrow: $('.links__arrows-right'),
+        responsive: [
+            {
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 3,
+                }
+            },
+            {
+                breakpoint: 970,
+                settings: {
+                    slidesToShow: 2,
+                }
+            },
+            {
+                breakpoint: 650,
+                settings: {
+                    slidesToShow: 1,
+                }
+            },
+
+        ]
     })
 
 
@@ -117,10 +153,10 @@ $(document).ready(function () {
 
 
     /**********************
-   **********************
+    **********************
        APPLICATION FILL FORM
-   **********************
-   **********************/
+    **********************
+    **********************/
     const steps = document.querySelectorAll('.application__fill-top__item');
     const stepContents = document.querySelectorAll('.application__fill-form');
     const prevBtn = document.getElementById('previous');

@@ -104,6 +104,7 @@ body {
     @include fontFt(16px, 400, 130%, $text);
     overflow-x: hidden;
     background: $main_bg;
+    text-wrap: balance;
 }
 
 
@@ -710,6 +711,7 @@ label {
     &__top {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         padding-bottom: 54px;
 
         h2 {
@@ -1540,26 +1542,6 @@ label {
     padding-bottom: 318px;
     position: relative;
     z-index: 0;
-
-    .coat_of_arm {
-        position: absolute;
-        width: 427px;
-        height: 404px;
-        left: 50%;
-        top: 55%;
-        transform: translate(-50%, -50%);
-        z-index: -1;
-
-        img {
-            position: absolute;
-            z-index: 1;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-    }
 
     .row {
         row-gap: 20px;
@@ -2514,8 +2496,92 @@ label {
 .footer {
     &__wrapper {
         text-align: center;
-        @include fontAs(18px, 700, 10%, $text);
+        @include fontAs(18px, 700, 150%, $text);
         padding-top: 26px;
         padding-bottom: 41px;
+    }
+}
+
+
+
+/**********************
+    **********************
+        MEDIA QUERIES
+    **********************
+**********************/
+
+@media (max-width: 1220px) {
+    .region__tab {
+        max-width: 100%;
+        justify-content: center;
+    }
+
+    .region__tab-item {
+        flex-direction: column;
+    }
+
+    .region__map {
+        display: flex;
+        justify-content: center;
+    }
+
+
+    .region__list {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .recent {
+        margin-top: -10%;
+
+        .container {
+            margin: 0;
+            max-width: 100%;
+            padding: 0;
+        }
+    }
+
+    .recent__box {
+        position: static;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        width: 100%;
+        left: 0;
+        height: 100%;
+        padding: 20px 10px;
+        box-shadow: 0px 1px 17px 0px rgba(147, 147, 147, 0.15);
+
+
+        &::after {
+            content: none;
+        }
+    }
+
+    .recent__item {
+        border: none;
+        padding: 0;
+    }
+}
+
+@media (max-width: 992px) {
+    .header {
+
+        .menu__list {
+            display: none;
+        }
+
+        .navbar__top-item {
+            display: none;
+        }
+    }
+}
+
+
+@media (max-width: 520px) {
+    .services__top {
+        flex-direction: column;
+        gap: 40px;
     }
 }
