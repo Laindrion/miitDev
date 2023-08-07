@@ -224,6 +224,13 @@ $(document).ready(function () {
     }
 
 
+
+
+    /**********************
+    **********************
+       MAP SLIDER
+    **********************
+    **********************/
     // Get the SVG map element and the list of regions
     const svgMap = document.getElementById('uzbekistan-map');
     const regionListItems = document.querySelectorAll('.region__list-item');

@@ -15,6 +15,9 @@ $black: #000;
 $main_bg: #fbfbfb;
 $bg_dark: #051A3C;
 $section_bg: #F4F4F4;
+
+$active: #072148;
+$menu_active: #072148;
 $link: #051A3C;
 $text: #656565;
 $sectionHeaderText: #bababa;
@@ -322,7 +325,7 @@ label {
 /* NAVBAR */
 .navbar {
     background: $bg_dark;
-    padding: 18px 0;
+    padding: 0 0;
 
     &__wrapper {
         display: flex;
@@ -364,7 +367,6 @@ label {
     @include fontAs(18px, 700, 160%, $white);
     display: flex;
     align-items: center;
-    gap: 31px;
     justify-content: space-between;
 
     &-item {
@@ -378,33 +380,102 @@ label {
             transform: scaleY(1);
         }
 
-        ul {
+        .menu__list-dropdown {
             position: absolute;
             z-index: 100;
-            background: $white;
-            padding: 20px 10px;
-            border-radius: 15px;
-            max-width: 300px;
+            padding: 0;
+            background: $menu_active;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            width: 320px;
             transform-origin: top;
             transform: scaleY(0);
             transition: .4s all;
 
             a {
-                @include fontAs(16px, 600, null, $black);
+                @include fontAs(18px, 700, 160%, $white);
+                display: block;
+                padding: 16px 18px;
+            }
+
+            li {
+                position: relative;
+                transition: .4s all;
+            }
+
+            li:has(> .menu__list-inner__dropdown) {
+                a {
+                    position: relative;
+
+                    &::after {
+                        @include pseudo(url('../images/arrow-triangle.svg'), 16px, 9px);
+                        right: 24px;
+                        top: 50%;
+                        transform: translateY(-50%) rotate(-90deg);
+                        opacity: .3;
+                        transition: .4s all;
+                    }
+                }
+
+                &:hover a::after {
+                    right: 20px;
+                    opacity: 1;
+                }
+            }
+
+            li:not(:last-child) {
+                border-bottom: 1px solid #0A2855;
+            }
+
+            li:hover .menu__list-inner__dropdown {
+                display: block;
+            }
+
+            li:hover {
+                padding-left: 5px;
+            }
+
+            .menu__list-inner__dropdown {
+                position: absolute;
+                right: -93%;
+                max-width: 300px;
+                background: $active;
+                top: 50%;
+                transform: translateY(-50%);
+                display: none;
+
+                width: 300px;
+
+                li {
+                    padding: 0;
+                }
+
+                a {
+                    display: block;
+                    padding: 0;
+                    padding: 10px 20px;
+                }
             }
         }
     }
 
     &-link {
         position: relative;
-        padding-right: 35px;
+        display: flex;
+        padding: 20px 0;
+        padding-left: 20px;
+        padding-right: 43px;
         transition: .4s all;
+
+        &:hover {
+            background: $menu_active;
+        }
     }
 
     &-link::after {
         @include pseudo(url('../images/arrow-triangle.svg'), 14px, 8px);
-        right: 0;
-        top: 40%;
+        right: 10px;
+        top: 45%;
         transform: translateX(-50%);
         transition: .4s all;
     }
@@ -886,6 +957,12 @@ label {
     &__tab-item {
         display: flex;
         justify-content: space-between;
+
+        display: none;
+
+        &.active {
+            display: flex;
+        }
     }
 
     /* Region Map */
