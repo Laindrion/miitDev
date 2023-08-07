@@ -223,4 +223,61 @@ $(document).ready(function () {
         })
     }
 
+
+    // Get the SVG map element and the list of regions
+    const svgMap = document.getElementById('uzbekistan-map');
+    const regionListItems = document.querySelectorAll('.region__list-item');
+
+    // Add click event listeners to each SVG region
+    svgMap.querySelectorAll('path').forEach(function (region) {
+        region.addEventListener('click', function () {
+            // Reset the style of all list items and SVG regions
+            regionListItems.forEach(function (item) {
+                item.classList.remove('active');
+            });
+            svgMap.querySelectorAll('path').forEach(function (region) {
+                region.removeAttribute('style');
+            });
+
+            // Get the region name from the data-region attribute
+            const regionName = region.getAttribute('data-region');
+
+            // Add active class to the corresponding list item
+            const clickedListItem = document.querySelector(`.region__list-item[data-region="${regionName}"]`);
+            clickedListItem.classList.add('active');
+
+            // Change the fill color of the clicked SVG region
+            region.style.fill = '#ffffff'; // Change to your desired color
+            region.style.fillOpacity = '1'; // Change to your desired color
+
+            // Scroll to the clicked list item
+            clickedListItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
+    });
+
+    // Add click event listeners to each list item
+    regionListItems.forEach(function (item) {
+        item.addEventListener('click', function () {
+            // Reset the style of all list items and SVG regions
+            regionListItems.forEach(function (item) {
+                item.classList.remove('active');
+            });
+            svgMap.querySelectorAll('path').forEach(function (region) {
+                region.removeAttribute('style');
+            });
+
+            // Get the region name from the data-region attribute
+            const regionName = item.getAttribute('data-region');
+
+            // Add active class to the corresponding list item
+            const clickedRegion = document.querySelector(`path[data-region="${regionName}"]`);
+            clickedRegion.style.fill = '#fff'; // Change to your desired color
+            clickedRegion.style.fillOpacity = '1';
+            item.classList.add('active');
+
+            // Scroll to the clicked list item
+            item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
+    });
+
 });

@@ -143,6 +143,11 @@ a {
     padding-top: 166px;
 }
 
+.section__title {
+    @include fontAs(32px, 700, 120%, $title);
+    text-align: center;
+}
+
 .section__header {
     height: 176px;
     position: relative;
@@ -2711,6 +2716,39 @@ label {
         strong {
             font-weight: 700;
         }
+    }
+}
+
+/**********************
+    **********************
+        UZBEKISTAN
+    **********************
+**********************/
+
+/* Uzbekistan Info */
+.uzbekistan__info {
+    padding-bottom: 74px;
+
+    .region__map svg {
+        width: 100%;
+    }
+
+    .region__list {
+        margin-top: 0;
+    }
+}
+
+.dark {
+    background: $section_bg;
+}
+
+/* Uzbekistan Symbol */
+.uzbekistan__symbol {
+    padding-top: 60px;
+    padding-bottom: 70px;
+
+    h3 {
+        @include fontAs(19px, 700, 130%, $title);
     }
 }
 
