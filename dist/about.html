@@ -45,17 +45,19 @@
                             <span class="navbar__top-suptitle">
                                 Язык:
                             </span>
-                            <a class="navbar__top-item-lang" href="#">
+                            <span class="navbar__top-item-lang" href="#">
                                 RU
                                 <span class="navbar__top-item-lang__inner">
-                                    <span>
+                                    <a href="#">
                                         ENG
-                                    </span>
-                                    <span>
+                                    </a>
+                                    <a href="#">
                                         UZB
-                                    </span>
+                                    </a>
                                 </span>
-                            </a>
+                            </span>
+
+
                         </div>
                     </div>
                 </div>
@@ -65,7 +67,7 @@
                 <div class="container">
                     <div class="navbar__wrapper">
                         <a class="navbar__font-size" href="#">
-                            <img src="../images/font-size.svg" alt="">
+                            <img src="images/font-size.svg" alt="">
                         </a>
 
                         <div class="navbar__inner">
@@ -75,36 +77,148 @@
                                         Министерство
                                     </a>
 
-                                    <ul>
+                                    <ul class="menu__list-dropdown">
                                         <li>
                                             <a href="#">
-                                                YESYESYESYESYESYESYESYESYESYESYES
-                                                YESYESYESYESYESYESYESYESYESYESYES
-                                                YESYESYESYESYESYESYESYESYESYESYES
-                                                YESYESYESYESYESYESYESYESYESYESYES
+                                                Министерство
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#">
-                                                YES
+                                                Руководство
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#">
-                                                YES
+                                                Подведомственные организации
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#">
-                                                YES
+                                                Представители в регионах
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="#">
+                                                Открытый реестр обращений
+                                            </a>
+
+                                            <ul class="menu__list-inner__dropdown">
+                                                <li>
+                                                    <a href="#">
+                                                        Порядок рассмотрения обращений физических и юридических лиц
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Услуги министерства
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Совет молодёжи
+                                            </a>
+                                            <ul class="menu__list-inner__dropdown">
+                                                <li>
+                                                    <a href="#">
+                                                        Программа отбора молодых специалистов
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Вопросы духовности и государственного языка
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Противодействие коррупции
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Гендерное равенство
+                                            </a>
+                                        </li>
+
                                     </ul>
                                 </li>
                                 <li class="menu__list-item">
                                     <a class="menu__list-link" href="#">
                                         Инвестиции
                                     </a>
+
+                                    <ul class="menu__list-dropdown">
+                                        <li>
+                                            <a href="#">
+                                                Министерство
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Руководство
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Подведомственные организации
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Представители в регионах
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Открытый реестр обращений
+                                            </a>
+
+                                            <ul class="menu__list-inner__dropdown">
+                                                <li>
+                                                    <a href="#">
+                                                        Порядок рассмотрения обращений физических и юридических лиц
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Услуги министерства
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Совет молодёжи
+                                            </a>
+                                            <ul class="menu__list-inner__dropdown">
+                                                <li>
+                                                    <a href="#">
+                                                        Программа отбора молодых специалистов
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Вопросы духовности и государственного языка
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Противодействие коррупции
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Гендерное равенство
+                                            </a>
+                                        </li>
+
+                                    </ul>
                                 </li>
                                 <li class="menu__list-item">
                                     <a class="menu__list-link" href="#">
@@ -119,10 +233,19 @@
                             </ul>
 
                             <div class="navbar__inner-items">
-                                <a class="navbar__inner-item" href="#">
-                                    <img src="../images/search.svg" alt="">
+                                <div id="navbar-search">
+                                    <input type="text" placeholder="Поиск...">
+                                    <button id="search">
+                                        <img src="images/search-header.svg" alt="">
+                                    </button>
+                                    <button id="close-search">
+                                        <img src="images/close-header.svg" alt="">
+                                    </button>
+                                </div>
+                                <a class="navbar__inner-item" id="header-search" href="#">
+                                    <img src="images/search.svg" alt="">
                                 </a>
-                                <a class="navbar__inner-item" href="#">
+                                <a class="navbar__inner-item" href="#" id="burger-menu">
                                     <span></span>
                                     <span></span>
                                     <span></span>
@@ -136,6 +259,339 @@
             </nav>
 
         </div>
+
+        <nav class="burger__navbar">
+            <div class="container">
+                <div class="burger__navbar-wrapper">
+                    <ul>
+                        <li>
+                            <a class="burger__navbar-link tab-link active" href="#">
+                                Министерство
+                            </a>
+                        </li>
+                        <li>
+                            <a class="burger__navbar-link tab-link" href="#">
+                                Инвестиции
+                            </a>
+                        </li>
+                        <li>
+                            <a class="burger__navbar-link tab-link" href="#">
+                                Законодательство
+                            </a>
+                        </li>
+                        <li>
+                            <a class="burger__navbar-link tab-link" href="#">
+                                Промышленность
+                            </a>
+                        </li>
+                        <li>
+                            <a class="burger__navbar-link tab-link" href="#">
+                                Торговля
+                            </a>
+                        </li>
+                        <li>
+                            <a class="burger__navbar-link tab-link" href="#">
+                                Пресс-служба
+                            </a>
+                        </li>
+                        <li>
+                            <a class="burger__navbar-link" href="#">
+                                Контакты
+                            </a>
+                        </li>
+                        <li>
+                            <a class="burger__navbar-link" href="#">
+                                Карта сайта
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="tab-content active">
+                        <li>
+                            <a href="#">
+                                Руководство
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Подведомственные организации
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Представители в регионах
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Открытый реестр обращений
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Услуги министерства
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Совет молодёжи
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Вопросы духовности и государственного языка
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Противодействие коррупции
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Гендерное равенство
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="tab-content active">
+                        <li>
+                            <a href="#">
+                                Об Узбекистане
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Инвестиционный климат
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Совет иностранных инвесторов
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Истории успеха инвесторов
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Субпроекты
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Статистика и аналитика
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Вопросы по ведению инвестиционной деятельности в Узбекистане - FAQ
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Инвестируйте в Узбекистан
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Крупные инвестиционные проекты
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="tab-content active">
+                        <li>
+                            <a href="#">
+                                Правовые основы сфер деятельности Министерства
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Ведомственные акты Министерства
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Инвестиционное регулирование
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Внешнеторговое регулирование
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                В сфере транспорта
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Таможенное и налоговое регулирование
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Политика конфиденциальности
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Утратившие силу нормативно-правовые документы
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Разрабатываемые проекты нормативно-правовых документов
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Конституция Республики Узбекистан
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="tab-content active">
+                        <li>
+                            <a href="#">
+                                Ярмарки, выставки и другие мероприятия, проводимые для повышения промышленного
+                                потенциала Республики
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Масштабные промышленные проекты, реализуемые в регионах и отраслях
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Принятые отраслевые НПА
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Показатели Узбекистана в международных рейтингах
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Статистика и аналитика
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="tab-content active">
+                        <li>
+                            <a href="#">
+                                Транспортирование
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Транспортные коридоры
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Ярмарки, выставки и другие мероприятия, проводимые для повышения торгового потенциала
+                                Республики
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Меры по поддержке экспортёров
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Показатели Узбекистана в международных рейтингах
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Статистика и аналитика
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Информационный центр по упрощению процедур внешней торговли
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="tab-content active">
+                        <li>
+                            <a href="#">
+                                Руководство
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Медиа
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Порядок аккредитации
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Обратная связь с пресс-службой
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Порядок рассмотрения запросов о предоставлении информации
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Опросы
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+                <div id="burger-menu-close">
+                    <img src="images/close.svg" alt="">
+                </div>
+            </div>
+        </nav>
     </header>
 
 <main class="main">
@@ -179,7 +635,7 @@
 
                 <div class="col-lg-6">
                     <div class="about__img">
-                        <img src="../images/about.jpg" alt="about image">
+                        <img src="images/about.jpg" alt="about image">
                     </div>
                 </div>
             </div>
@@ -202,7 +658,7 @@
                             програм м, в том числе отраслевых и реги ональных инвестиционных программ
                         </p>
 
-                        <img src="../images/about-info-icon-1.svg" alt="icon 1">
+                        <img src="images/about-info-icon-1.svg" alt="icon 1">
                     </div>
                 </div>
 
@@ -214,7 +670,7 @@
                             правительственными финансовыми организациями в двустороннем и многостороннем формате
                         </p>
 
-                        <img src="../images/about-info-icon-2.svg" alt="icon 2">
+                        <img src="images/about-info-icon-2.svg" alt="icon 2">
                     </div>
                 </div>
 
@@ -227,7 +683,7 @@
                             внешнеэкономической деятельности в заграничных учреждениях Республики Узбекистан
                         </p>
 
-                        <img src="../images/about-info-icon-3.svg" alt="icon 3">
+                        <img src="images/about-info-icon-3.svg" alt="icon 3">
                     </div>
                 </div>
 
@@ -238,7 +694,7 @@
                             Узбекистан по вопросам инвестиционного сотрудничества;
                         </p>
 
-                        <img src="../images/about-info-icon-4.svg" alt="icon 4">
+                        <img src="images/about-info-icon-4.svg" alt="icon 4">
                     </div>
                 </div>
 
@@ -249,7 +705,7 @@
                             компаниям в привлечении инвестиций, организацию разработки инвестиционных предложений;
                         </p>
 
-                        <img src="../images/about-info-icon-5.svg" alt="icon 5">
+                        <img src="images/about-info-icon-5.svg" alt="icon 5">
                     </div>
                 </div>
 
@@ -262,7 +718,7 @@
                             внешней торговли;
                         </p>
 
-                        <img src="../images/about-info-icon-6.svg" alt="icon 6">
+                        <img src="images/about-info-icon-6.svg" alt="icon 6">
                     </div>
                 </div>
 
@@ -273,7 +729,7 @@
                             торговле, а также совершенствование процедур электронной коммерции;
                         </p>
 
-                        <img src="../images/about-info-icon-7.svg" alt="icon 7">
+                        <img src="images/about-info-icon-7.svg" alt="icon 7">
                     </div>
                 </div>
 
@@ -284,7 +740,7 @@
                             государствами, поддержку экспорта товаров, работ и услуг;
                         </p>
 
-                        <img src="../images/about-info-icon-8.svg" alt="icon 8">
+                        <img src="images/about-info-icon-8.svg" alt="icon 8">
                     </div>
                 </div>
 
@@ -295,7 +751,7 @@
                             сотрудничества с другими многосторонними экономическими организациями;
                         </p>
 
-                        <img src="../images/about-info-icon-9.svg" alt="icon 9">
+                        <img src="images/about-info-icon-9.svg" alt="icon 9">
                     </div>
                 </div>
 
@@ -307,7 +763,7 @@
                             на товары;
                         </p>
 
-                        <img src="../images/about-info-icon-10.svg" alt="icon 10">
+                        <img src="images/about-info-icon-10.svg" alt="icon 10">
                     </div>
                 </div>
 
@@ -319,7 +775,7 @@
                             диверсификации экспортных маршрутов.
                         </p>
 
-                        <img src="../images/about-info-icon-11.svg" alt="icon 11">
+                        <img src="images/about-info-icon-11.svg" alt="icon 11">
                     </div>
                 </div>
             </div>

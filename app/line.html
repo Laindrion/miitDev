@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="text-container">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Fusce ut dapibus lacus. Sed hendrerit.
+    </div>
+
+    <style>
+        .text-container {
+            position: relative;
+            width: 100px;
+            margin-bottom: 20px;
+            max-height: 3.5em;
+            overflow: hidden;
+            position: relative;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            padding-bottom: 10px;
+        }
+
+        .text-content {}
+
+        .text-container::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 1px;
+            background-color: #000;
+        }
+    </style>
+</body>
+
+</html>

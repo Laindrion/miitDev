@@ -1,0 +1,184 @@
+<!--=include header.html -->
+
+<main class="main">
+    <section class="section__header">
+        <div class="container">
+
+            <span class="section__header-location">
+                Главная/Телефон доверия
+            </span>
+
+            <h1 class="section__header-title">
+                Телефон доверия
+            </h1>
+        </div>
+    </section>
+
+    <section class="helpline">
+        <div class="container">
+            <div class="row helpline__wrapper">
+                <div class="helpline__top">
+                    Статистика обращений граждан по телефону доверия
+                </div>
+
+                <span class="helpline__title">
+                    Звонков за последний год <span> 1567 </span>
+                </span>
+
+                <div class="col-lg-6">
+                    <div class="helpline__list">
+                        <div class="helpline__item">
+                            <div>
+                                <span class="helpline__color" style="background-color: #0A2145;"></span>
+                                Оценка на “ плохо “
+                            </div>
+
+                            <span>
+                                22.1
+                            </span>
+                        </div>
+
+                        <div class="helpline__item">
+                            <div>
+                                <span class="helpline__color" style="background-color: #645711;"></span>
+                                Оценка на “ отлично “
+                            </div>
+
+                            <span>
+                                22.1
+                            </span>
+                        </div>
+
+                        <div class="helpline__item">
+                            <div>
+                                <span class="helpline__color" style="background-color: #05591D;"></span>
+                                Оценка на “ удовлетворительно “
+                            </div>
+
+                            <span>
+                                22.1
+                            </span>
+                        </div>
+
+                        <div class="helpline__item">
+                            <div>
+                                <span class="helpline__color" style="background-color: #530C5F;"></span>
+                                Оценка на “ неудовлетворительно “
+                            </div>
+
+                            <span>
+                                22.1
+                            </span>
+                        </div>
+
+                        <div class="helpline__item">
+                            <div>
+                                <span class="helpline__color" style="background-color: #7B3E11;"></span>
+                                Оценка на “ хорошо “
+                            </div>
+
+                            <span>
+                                22.1
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <!-- Styles -->
+                    <style>
+                        #chart {
+                            width: 100%;
+                            height: 550px;
+                            margin-top: -120px;
+                        }
+
+                        #chart div {
+                            height: 93% !important;
+                            overflow: hidden;
+                        }
+                    </style>
+
+                    <script src="//cdn.amcharts.com/lib/4/core.js"></script>
+                    <script src="//cdn.amcharts.com/lib/4/charts.js"></script>
+                    <script src="//cdn.amcharts.com/lib/4/themes/animated.js"></script>
+
+                    <!-- Chart code -->
+                    <script>
+                        /**
+   * --------/**
+ * ---------------------------------------
+ * This demo was created using amCharts 4.
+ *
+ * For more information visit:
+ * https://www.amcharts.com/
+ *
+ * Documentation is available at:
+ * https://www.amcharts.com/docs/v4/
+ * ---------------------------------------
+ */
+
+                        am4core.useTheme(am4themes_animated);
+
+                        var chart = am4core.create("chart", am4charts.PieChart);
+                        chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+
+                        chart.data = [
+                            {
+                                assessment: "Оценка на “ плохо “",
+                                value: 401,
+                                "color": am4core.color("#0A2145")
+                            },
+                            {
+                                assessment: "Оценка на “ отлично “",
+                                value: 300,
+                                "color": am4core.color("#645711")
+                            },
+                            {
+                                assessment: "Оценка на “ удовлетворительно “",
+                                value: 200,
+                                "color": am4core.color("#05591D")
+                            },
+                            {
+                                assessment: "Оценка на “ неудовлетворительно “",
+                                value: 165,
+                                "color": am4core.color("#530C5F")
+                            },
+                            {
+                                assessment: "Оценка на “ хорошо “",
+                                value: 139,
+                                "color": am4core.color("#7B3E11")
+                            }
+                        ];
+                        chart.radius = am4core.percent(70);
+                        chart.innerRadius = am4core.percent(55);
+
+                        var series = chart.series.push(new am4charts.PieSeries());
+                        series.dataFields.value = "value";
+                        series.dataFields.category = "assessment";
+
+                        series.slices.template.propertyFields.fill = "color";
+                        series.slices.template.stroke = am4core.color("#fff");
+                        series.slices.template.strokeWidth = 7;
+                        series.slices.template.strokeOpacity = 1;
+                        series.labels.template.disabled = true;
+                        series.ticks.template.disabled = true;
+                        series.slices.template.tooltipText = "";
+                        series.slices.template.cornerRadius = 20;
+                        series.slices.template.innerCornerRadius = 14;
+                        series.slices.template.draggable = true;
+                        series.slices.template.inert = true;
+
+                        series.hiddenState.properties.startAngle = 90;
+                        series.hiddenState.properties.endAngle = 90;
+
+
+                    </script>
+
+                    <div id="chart"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<!--=include footer.html -->

@@ -29,6 +29,33 @@ $(document).ready(function () {
 
     /**********************
     **********************
+      HEADER SEARCH
+    **********************
+    **********************/
+
+    $('#header-search').click(() => {
+        $('#navbar-search').addClass('active');
+    })
+    $('#close-search').click(() => {
+        $('#navbar-search').removeClass('active');
+    })
+
+    /**********************
+    **********************
+      BURGER MENU
+    **********************
+    **********************/
+    $('#burger-menu').click(function () {
+        $('.burger__navbar').addClass('active');
+        $('body').addClass('modal__open');
+    })
+
+    $('#burger-menu-close').click(() => {
+        $('.burger__navbar').removeClass('active');
+        $('body').removeClass('modal__open');
+    })
+    /**********************
+    **********************
         HERO SLIDER
       **********************
       **********************/
@@ -36,7 +63,7 @@ $(document).ready(function () {
         arrows: false,
         dots: true,
         fade: true
-    })
+    });
 
 
     /**********************
@@ -234,6 +261,7 @@ $(document).ready(function () {
     // Get the SVG map element and the list of regions
     const svgMap = document.getElementById('uzbekistan-map');
     const regionListItems = document.querySelectorAll('.region__list-item');
+    const uzbekistanInfo = document.getElementById('uzbekistan-info');
 
     // Add click event listeners to each SVG region
     svgMap.querySelectorAll('path').forEach(function (region) {
@@ -256,6 +284,10 @@ $(document).ready(function () {
             // Change the fill color of the clicked SVG region
             region.style.fill = '#ffffff'; // Change to your desired color
             region.style.fillOpacity = '1'; // Change to your desired color
+
+            if (uzbekistanInfo) {
+                region.style.fill = '#051A3B';
+            }
 
             // Scroll to the clicked list item
             clickedListItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -280,6 +312,11 @@ $(document).ready(function () {
             const clickedRegion = document.querySelector(`path[data-region="${regionName}"]`);
             clickedRegion.style.fill = '#fff'; // Change to your desired color
             clickedRegion.style.fillOpacity = '1';
+
+            if (uzbekistanInfo) {
+                clickedRegion.style.fill = '#051A3B';
+            }
+
             item.classList.add('active');
 
             // Scroll to the clicked list item

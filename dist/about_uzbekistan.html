@@ -45,17 +45,19 @@
                             <span class="navbar__top-suptitle">
                                 Язык:
                             </span>
-                            <a class="navbar__top-item-lang" href="#">
+                            <span class="navbar__top-item-lang" href="#">
                                 RU
                                 <span class="navbar__top-item-lang__inner">
-                                    <span>
+                                    <a href="#">
                                         ENG
-                                    </span>
-                                    <span>
+                                    </a>
+                                    <a href="#">
                                         UZB
-                                    </span>
+                                    </a>
                                 </span>
-                            </a>
+                            </span>
+
+
                         </div>
                     </div>
                 </div>
@@ -65,7 +67,7 @@
                 <div class="container">
                     <div class="navbar__wrapper">
                         <a class="navbar__font-size" href="#">
-                            <img src="../images/font-size.svg" alt="">
+                            <img src="images/font-size.svg" alt="">
                         </a>
 
                         <div class="navbar__inner">
@@ -75,36 +77,148 @@
                                         Министерство
                                     </a>
 
-                                    <ul>
+                                    <ul class="menu__list-dropdown">
                                         <li>
                                             <a href="#">
-                                                YESYESYESYESYESYESYESYESYESYESYES
-                                                YESYESYESYESYESYESYESYESYESYESYES
-                                                YESYESYESYESYESYESYESYESYESYESYES
-                                                YESYESYESYESYESYESYESYESYESYESYES
+                                                Министерство
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#">
-                                                YES
+                                                Руководство
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#">
-                                                YES
+                                                Подведомственные организации
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#">
-                                                YES
+                                                Представители в регионах
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="#">
+                                                Открытый реестр обращений
+                                            </a>
+
+                                            <ul class="menu__list-inner__dropdown">
+                                                <li>
+                                                    <a href="#">
+                                                        Порядок рассмотрения обращений физических и юридических лиц
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Услуги министерства
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Совет молодёжи
+                                            </a>
+                                            <ul class="menu__list-inner__dropdown">
+                                                <li>
+                                                    <a href="#">
+                                                        Программа отбора молодых специалистов
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Вопросы духовности и государственного языка
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Противодействие коррупции
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Гендерное равенство
+                                            </a>
+                                        </li>
+
                                     </ul>
                                 </li>
                                 <li class="menu__list-item">
                                     <a class="menu__list-link" href="#">
                                         Инвестиции
                                     </a>
+
+                                    <ul class="menu__list-dropdown">
+                                        <li>
+                                            <a href="#">
+                                                Министерство
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Руководство
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Подведомственные организации
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Представители в регионах
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Открытый реестр обращений
+                                            </a>
+
+                                            <ul class="menu__list-inner__dropdown">
+                                                <li>
+                                                    <a href="#">
+                                                        Порядок рассмотрения обращений физических и юридических лиц
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Услуги министерства
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Совет молодёжи
+                                            </a>
+                                            <ul class="menu__list-inner__dropdown">
+                                                <li>
+                                                    <a href="#">
+                                                        Программа отбора молодых специалистов
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Вопросы духовности и государственного языка
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Противодействие коррупции
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                Гендерное равенство
+                                            </a>
+                                        </li>
+
+                                    </ul>
                                 </li>
                                 <li class="menu__list-item">
                                     <a class="menu__list-link" href="#">
@@ -119,10 +233,19 @@
                             </ul>
 
                             <div class="navbar__inner-items">
-                                <a class="navbar__inner-item" href="#">
-                                    <img src="../images/search.svg" alt="">
+                                <div id="navbar-search">
+                                    <input type="text" placeholder="Поиск...">
+                                    <button id="search">
+                                        <img src="images/search-header.svg" alt="">
+                                    </button>
+                                    <button id="close-search">
+                                        <img src="images/close-header.svg" alt="">
+                                    </button>
+                                </div>
+                                <a class="navbar__inner-item" id="header-search" href="#">
+                                    <img src="images/search.svg" alt="">
                                 </a>
-                                <a class="navbar__inner-item" href="#">
+                                <a class="navbar__inner-item" href="#" id="burger-menu">
                                     <span></span>
                                     <span></span>
                                     <span></span>
@@ -136,6 +259,339 @@
             </nav>
 
         </div>
+
+        <nav class="burger__navbar">
+            <div class="container">
+                <div class="burger__navbar-wrapper">
+                    <ul>
+                        <li>
+                            <a class="burger__navbar-link tab-link active" href="#">
+                                Министерство
+                            </a>
+                        </li>
+                        <li>
+                            <a class="burger__navbar-link tab-link" href="#">
+                                Инвестиции
+                            </a>
+                        </li>
+                        <li>
+                            <a class="burger__navbar-link tab-link" href="#">
+                                Законодательство
+                            </a>
+                        </li>
+                        <li>
+                            <a class="burger__navbar-link tab-link" href="#">
+                                Промышленность
+                            </a>
+                        </li>
+                        <li>
+                            <a class="burger__navbar-link tab-link" href="#">
+                                Торговля
+                            </a>
+                        </li>
+                        <li>
+                            <a class="burger__navbar-link tab-link" href="#">
+                                Пресс-служба
+                            </a>
+                        </li>
+                        <li>
+                            <a class="burger__navbar-link" href="#">
+                                Контакты
+                            </a>
+                        </li>
+                        <li>
+                            <a class="burger__navbar-link" href="#">
+                                Карта сайта
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="tab-content active">
+                        <li>
+                            <a href="#">
+                                Руководство
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Подведомственные организации
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Представители в регионах
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Открытый реестр обращений
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Услуги министерства
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Совет молодёжи
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Вопросы духовности и государственного языка
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Противодействие коррупции
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Гендерное равенство
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="tab-content active">
+                        <li>
+                            <a href="#">
+                                Об Узбекистане
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Инвестиционный климат
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Совет иностранных инвесторов
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Истории успеха инвесторов
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Субпроекты
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Статистика и аналитика
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Вопросы по ведению инвестиционной деятельности в Узбекистане - FAQ
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Инвестируйте в Узбекистан
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Крупные инвестиционные проекты
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="tab-content active">
+                        <li>
+                            <a href="#">
+                                Правовые основы сфер деятельности Министерства
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Ведомственные акты Министерства
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Инвестиционное регулирование
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Внешнеторговое регулирование
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                В сфере транспорта
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Таможенное и налоговое регулирование
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Политика конфиденциальности
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Утратившие силу нормативно-правовые документы
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Разрабатываемые проекты нормативно-правовых документов
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Конституция Республики Узбекистан
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="tab-content active">
+                        <li>
+                            <a href="#">
+                                Ярмарки, выставки и другие мероприятия, проводимые для повышения промышленного
+                                потенциала Республики
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Масштабные промышленные проекты, реализуемые в регионах и отраслях
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Принятые отраслевые НПА
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Показатели Узбекистана в международных рейтингах
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Статистика и аналитика
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="tab-content active">
+                        <li>
+                            <a href="#">
+                                Транспортирование
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Транспортные коридоры
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Ярмарки, выставки и другие мероприятия, проводимые для повышения торгового потенциала
+                                Республики
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Меры по поддержке экспортёров
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Показатели Узбекистана в международных рейтингах
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Статистика и аналитика
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Информационный центр по упрощению процедур внешней торговли
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="tab-content active">
+                        <li>
+                            <a href="#">
+                                Руководство
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Медиа
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Порядок аккредитации
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Обратная связь с пресс-службой
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Порядок рассмотрения запросов о предоставлении информации
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Опросы
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+                <div id="burger-menu-close">
+                    <img src="images/close.svg" alt="">
+                </div>
+            </div>
+        </nav>
     </header>
 
 <main class="main">
@@ -152,13 +608,7 @@
         </div>
     </section>
 
-    <section class="uzbekistan__map">
-        <div class="container">
-
-        </div>
-    </section>
-
-    <section class="uzbekistan__info">
+    <section class="uzbekistan uzbekistan__info" id="uzbekistan-info">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
@@ -597,7 +1047,7 @@
         </div>
     </section>
 
-    <section class="uzbekistan__symbol dark">
+    <section class="uzbekistan uzbekistan__symbol dark">
         <div class="container">
             <div class="row">
                 <h2 class="section__title title">
@@ -626,12 +1076,12 @@
                     </p>
                 </div>
                 <div class="col-lg-6">
-                    <img src="../images/coat_of_arms.png" alt="">
+                    <img src="images/coat_of_arms.png" alt="">
                 </div>
 
 
                 <div class="col-lg-6">
-                    <img src="../images/flag.jpg" alt="">
+                    <img src="images/flag.jpg" alt="">
                 </div>
 
                 <div class="col-lg-6">
@@ -650,45 +1100,48 @@
                         флага.
                     </p>
                 </div>
-                <h3>
-                    ГОСУДАРСТВЕННЫЙ ГИМН РЕСПУБЛИКИ УЗБЕКИСТАН
-                </h3>
-                <p>
-                    Текст и музыкальная редакция Государственного гимна Республики Узбекистан утверждены законом
-                    Республики Узбекистан «О Государственном гимне Республики Узбекистан» от 10 декабря 1992 г. №
-                    768-ХII. Государственный гимн Республики Узбекистан является символом государственного суверенитета
-                    Республики Узбекистан.
-                    Глубокое уважение к Государственному гимну Республики Узбекистан — патриотический долг каждого
-                    гражданина Республики Узбекистан.
-                </p>
+                <div>
+                    <h3>
+                        ГОСУДАРСТВЕННЫЙ ГИМН РЕСПУБЛИКИ УЗБЕКИСТАН
+                    </h3>
+                    <p>
+                        Текст и музыкальная редакция Государственного гимна Республики Узбекистан утверждены законом
+                        Республики Узбекистан «О Государственном гимне Республики Узбекистан» от 10 декабря 1992 г. №
+                        768-ХII. Государственный гимн Республики Узбекистан является символом государственного
+                        суверенитета
+                        Республики Узбекистан.
+                        Глубокое уважение к Государственному гимну Республики Узбекистан — патриотический долг каждого
+                        гражданина Республики Узбекистан.
+                    </p>
 
-                <h4>
-                    Музыка - Мутала Бурхонова Слова - Абдуллы Орипова
-                </h4>
+                    <h4>
+                        Музыка - Мутала Бурхонова Слова - Абдуллы Орипова
+                    </h4>
 
-                <p>
-                    Серқуёш, ҳур ўлкам, элга бахт, нажот,
-                    Сен ўзинг дўстларга йўлдош, меҳрибон!
-                    Яшнагай то абад илму фан, ижод,
-                    Шуҳратинг порласин токи бор жаҳон!
-                    Припев: Олтин бу водийлар — жон Ўзбекистон,
-                    Аждодлар мардона руҳи сенга ёр!
-                    Улуғ халқ қудрати жўш урган замон,
-                    Оламни маҳлиё айлаган диёр!
-                    Бағри кенг ўзбекнинг ўчмас иймони,
-                    Эркин, ёш авлодлар сенга зўр қанот!
-                    Истиқлол машъали, тинчлик посбони,
-                    Ҳақсевар, она юрт, мангу бўл обод!
-                    Припев:Олтин бу водийлар — жон Ўзбекистон,
-                    Аждодлар мардона руҳи сенга ёр!
-                    Улуғ халқ қудрати жўш урган замон,
-                    Оламни маҳлиё айлаган диёр!
-                </p>
+                    <p class="hymn">
+                        Серқуёш, ҳур ўлкам, элга бахт, нажот,
+                        Сен ўзинг дўстларга йўлдош, меҳрибон!
+                        Яшнагай то абад илму фан, ижод,
+                        Шуҳратинг порласин токи бор жаҳон!
+                        Припев: Олтин бу водийлар — жон Ўзбекистон,
+                        Аждодлар мардона руҳи сенга ёр!
+                        Улуғ халқ қудрати жўш урган замон,
+                        Оламни маҳлиё айлаган диёр!
+                        Бағри кенг ўзбекнинг ўчмас иймони,
+                        Эркин, ёш авлодлар сенга зўр қанот!
+                        Истиқлол машъали, тинчлик посбони,
+                        Ҳақсевар, она юрт, мангу бўл обод!
+                        Припев:Олтин бу водийлар — жон Ўзбекистон,
+                        Аждодлар мардона руҳи сенга ёр!
+                        Улуғ халқ қудрати жўш урган замон,
+                        Оламни маҳлиё айлаган диёр!
+                    </p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="uzbekistan__location">
+    <section class="uzbekistan uzbekistan__location">
         <div class="container">
             <h2 class="section__title">
                 Географическое расположение
@@ -713,7 +1166,7 @@
         </div>
     </section>
 
-    <section class="uzbekistan__territory dark">
+    <section class="uzbekistan uzbekistan__territory dark">
         <div class="container">
             <h2 class="section__title">
                 Территория
@@ -732,7 +1185,7 @@
         </div>
     </section>
 
-    <section class="uzbekistan__population">
+    <section class="uzbekistan uzbekistan__population">
         <div class="container">
             <h2 class="section__title">
                 Население
@@ -744,7 +1197,7 @@
         </div>
     </section>
 
-    <section class="uzbekistan__holidays">
+    <section class="uzbekistan uzbekistan__holidays dark">
         <div class="container">
             <div class="uzbekistan__holidays-wrapper">
                 <h2 class="section__title">
@@ -755,7 +1208,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="uzbekistan__holidays-img">
-                                <img src="../images/holiday-1.jpg" alt="">
+                                <img src="images/holiday-1.jpg" alt="">
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -792,7 +1245,7 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="uzbekistan__holidays-img">
-                                <img src="../images/holiday-2.jpg" alt="">
+                                <img src="images/holiday-2.jpg" alt="">
                             </div>
                         </div>
                     </div>
@@ -802,7 +1255,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="uzbekistan__holidays-img">
-                                <img src="../images/holiday-3.jpg" alt="">
+                                <img src="images/holiday-3.jpg" alt="">
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -845,7 +1298,7 @@
 
                         <div class="col-lg-6">
                             <div class="uzbekistan__holidays-img">
-                                <img src="../images/holiday-4.jpg" alt="">
+                                <img src="images/holiday-4.jpg" alt="">
                             </div>
                         </div>
 
@@ -857,7 +1310,7 @@
 
                         <div class="col-lg-6">
                             <div class="uzbekistan__holidays-img">
-                                <img src="../images/holiday-5.jpg" alt="">
+                                <img src="images/holiday-5.jpg" alt="">
                             </div>
                         </div>
 
@@ -901,7 +1354,7 @@
 
                         <div class="col-lg-6">
                             <div class="uzbekistan__holidays-img">
-                                <img src="../images/holiday-6.jpg" alt="">
+                                <img src="images/holiday-6.jpg" alt="">
                             </div>
                         </div>
 
@@ -914,7 +1367,7 @@
 
                         <div class="col-lg-6">
                             <div class="uzbekistan__holidays-img">
-                                <img src="../images/holiday-7.jpg" alt="">
+                                <img src="images/holiday-7.jpg" alt="">
                             </div>
                         </div>
 
@@ -952,7 +1405,7 @@
 
                         <div class="col-lg-6">
                             <div class="uzbekistan__holidays-img">
-                                <img src="../images/holiday-7.jpg" alt="">
+                                <img src="images/holiday-7.jpg" alt="">
                             </div>
                         </div>
 
@@ -964,7 +1417,7 @@
 
                         <div class="col-lg-6">
                             <div class="uzbekistan__holidays-img">
-                                <img src="../images/holiday-8.jpg" alt="">
+                                <img src="images/holiday-8.jpg" alt="">
                             </div>
                         </div>
 
