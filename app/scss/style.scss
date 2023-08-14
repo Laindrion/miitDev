@@ -283,10 +283,15 @@ label {
         @include fontFt(15px, 400, 160%, null);
     }
 
+    a.navbar__top-suptitle {
+        @include fontFt(15px, 400, 160%, null);
+    }
+
     &-item-lang {
-        padding-right: 25px;
-        @include fontAs(22px, 700, 160%, $title);
         position: relative;
+        @include fontAs(22px, 700, 160%, $title);
+        padding-right: 25px;
+        cursor: pointer;
     }
 
     &-item-lang::after {
@@ -316,6 +321,7 @@ label {
 
     &-item-lang__inner a {
         display: block;
+        padding: 5px 10px;
     }
 
     &-item-lang__inner a:not(:last-child) {
@@ -576,7 +582,7 @@ body.modal__open {
         margin-bottom: 70px;
         display: flex;
         flex-direction: column;
-        gap: 17px;
+        gap: 10px;
         max-width: 500px;
 
         &:first-child {
@@ -631,7 +637,7 @@ body.modal__open {
         display: none;
 
         a {
-            @include fontAs(22px, 700, 160%, #142D56);
+            @include fontAs(22px, 700, 160%, $white);
             transition: .4s all;
 
             &:hover {
@@ -641,6 +647,9 @@ body.modal__open {
 
         &.active {
             display: flex;
+            position: absolute;
+            right: 140px;
+            top: 0;
         }
     }
 
@@ -1320,6 +1329,7 @@ body.modal__open {
 
         &::before {
             @extend %title_border;
+            bottom: -18px;
         }
     }
 

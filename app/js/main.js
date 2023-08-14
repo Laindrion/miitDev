@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
     /**********************
     **********************
         STICKY HEADER
@@ -24,7 +23,10 @@ $(document).ready(function () {
     *********************
     **********************/
     $('.navbar__top-item-lang').click(function () {
-        $('.navbar__top-item-lang__inner').toggleClass('active')
+        $('.navbar__top-item-lang__inner').toggleClass('active');
+
+        $('.burger__navbar').removeClass('active');
+        $('body').removeClass('modal__open');
     })
 
     /**********************
@@ -48,6 +50,8 @@ $(document).ready(function () {
     $('#burger-menu').click(function () {
         $('.burger__navbar').addClass('active');
         $('body').addClass('modal__open');
+
+        $('.navbar__top-item-lang__inner').removeClass('active');
     })
 
     $('#burger-menu-close').click(() => {
