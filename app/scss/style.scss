@@ -527,6 +527,7 @@ label {
     }
 
     &-link {
+        @include fontAs(14px, 700, 160%, $white);
         position: relative;
         display: flex;
         padding: 20px 0;
@@ -1241,7 +1242,7 @@ body.modal__open {
                 }
 
                 a {
-                    @include fontAs(20px, 700, 160%, $title);
+                    @include fontAs(17px, 700, 160%, $title);
                     position: relative;
                     padding-left: 30px;
                 }
@@ -2143,6 +2144,15 @@ body.modal__open {
             padding: 14px 30px;
             background: transparent;
         }
+
+        button {
+            @include fontFt(16px, 700, 160%, $link);
+            border-radius: 10px;
+            border: 1px solid #051A3C;
+            box-shadow: 0px 1px 17px 0px rgba(5, 26, 59, 0.25);
+            padding: 14px 30px;
+            background: transparent;
+        }
     }
 }
 
@@ -2153,6 +2163,71 @@ body.modal__open {
 }
 
 .contracts {
+    #currency-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .currency__list {
+
+        &-item.row {
+            display: flex;
+            align-items: flex-end;
+        }
+
+        &-close {
+            margin-bottom: 5px;
+
+            button {
+                border-radius: 10px;
+                background: transparent;
+                border: 2px solid #051A3C;
+                box-shadow: 0px 1px 17px 0px rgba(228, 228, 228, 0.25);
+                padding: 12px 15px;
+                padding-bottom: 9px;
+            }
+        }
+    }
+
+    #currency-add {
+        position: relative;
+        border: $active;
+        border-radius: 10px;
+        border: 2px solid #051A3C;
+        box-shadow: 0px 1px 17px 0px rgba(228, 228, 228, 0.25);
+        background: transparent;
+        display: inline-block;
+        max-width: 253px;
+        padding: 12px;
+        margin: 0;
+        margin-left: auto;
+        @include fontFt(16px, 600, 160%, $active);
+
+        &::after {
+            content: '+';
+            position: absolute;
+            right: 20px;
+            color: $active;
+            top: 50%;
+            transform: translateY(-50%);
+            @include fontFt(35px, 600, 160%, $active);
+        }
+    }
+
+    #contract-confirm {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+
+    .col-lg-2.captcha {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: flex-start;
+    }
 }
 
 
@@ -2473,6 +2548,14 @@ body.modal__open {
         #previous {
             border-color: #D3D3D3;
             color: #D3D3D3;
+        }
+
+        button {
+            @include fontFt(16px, 700, 160%, $link);
+            border-radius: 10px;
+            padding: 14px 54px;
+            border: 1px solid $link;
+            box-shadow: 0px 1px 17px 0px rgba(228, 228, 228, 0.25);
         }
     }
 

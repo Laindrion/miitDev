@@ -190,6 +190,7 @@ $(document).ready(function () {
     **********************/
     const steps = document.querySelectorAll('.application__fill-top__item');
     const stepContents = document.querySelectorAll('.application__fill-form');
+    const submitBtn = document.getElementById('submit-btn')
     const prevBtn = document.getElementById('previous');
     const nextBtn = document.getElementById('next');
     let currentStep = 0;
@@ -197,7 +198,41 @@ $(document).ready(function () {
     function updateButtons() {
         prevBtn.disabled = currentStep === 0;
         nextBtn.disabled = currentStep === steps.length - 1;
+
+        if (currentStep === 0) {
+            prevBtn.style.display = 'none'; // Hide the Previous button
+        } else {
+            prevBtn.style.display = 'block'; // Show the Previous button
+        }
+
+        if (currentStep === steps.length - 1) {
+            nextBtn.style.display = 'none'; // Hide the Next button
+            submitBtn.style.display = 'block'; // Show the Submit button
+        } else {
+            nextBtn.style.display = 'block'; // Show the Next button
+            submitBtn.style.display = 'none'; // Hide the Submit button
+        }
     }
+
+    function validateInputs() {
+        const inputs = stepContents[currentStep].querySelectorAll('input');
+        const selects = stepContents[currentStep].querySelectorAll('select');
+
+        for (const input of inputs) {
+            if (input.value.trim() === '') {
+                return false; // Return false if any input is empty
+            }
+        }
+
+        for (const select of selects) {
+            if (select.value.trim() === '') {
+                return false; // Return false if any select is empty
+            }
+        }
+
+        return true; // All inputs and selects are filled
+    }
+
 
     function updateStepHighlight() {
         steps.forEach((step, index) => {
@@ -213,9 +248,21 @@ $(document).ready(function () {
 
     function nextStep() {
         if (currentStep < steps.length - 1) {
-            currentStep++;
-            updateButtons();
-            updateStepHighlight();
+            if (validateInputs()) {
+                currentStep++;
+                updateButtons();
+                updateStepHighlight();
+            } else {
+                alert('Please fill in all the required fields before proceeding.');
+            }
+        }
+    }
+
+    function submitForm() {
+        if (validateInputs()) {
+            // Perform form submission logic here
+        } else {
+            alert('Please fill in all the required fields before submitting.');
         }
     }
 
@@ -268,35 +315,38 @@ $(document).ready(function () {
     const uzbekistanInfo = document.getElementById('uzbekistan-info');
 
     // Add click event listeners to each SVG region
-    svgMap.querySelectorAll('path').forEach(function (region) {
-        region.addEventListener('click', function () {
-            // Reset the style of all list items and SVG regions
-            regionListItems.forEach(function (item) {
-                item.classList.remove('active');
+    if (svgMap) {
+        svgMap.querySelectorAll('path').forEach(function (region) {
+            region.addEventListener('click', function () {
+                // Reset the style of all list items and SVG regions
+                regionListItems.forEach(function (item) {
+                    item.classList.remove('active');
+                });
+                svgMap.querySelectorAll('path').forEach(function (region) {
+                    region.removeAttribute('style');
+                });
+
+                // Get the region name from the data-region attribute
+                const regionName = region.getAttribute('data-region');
+
+                // Add active class to the corresponding list item
+                const clickedListItem = document.querySelector(`.region__list-item[data-region="${regionName}"]`);
+                clickedListItem.classList.add('active');
+
+                // Change the fill color of the clicked SVG region
+                region.style.fill = '#ffffff'; // Change to your desired color
+                region.style.fillOpacity = '1'; // Change to your desired color
+
+                if (uzbekistanInfo) {
+                    region.style.fill = '#051A3B';
+                }
+
+                // Scroll to the clicked list item
+                clickedListItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             });
-            svgMap.querySelectorAll('path').forEach(function (region) {
-                region.removeAttribute('style');
-            });
-
-            // Get the region name from the data-region attribute
-            const regionName = region.getAttribute('data-region');
-
-            // Add active class to the corresponding list item
-            const clickedListItem = document.querySelector(`.region__list-item[data-region="${regionName}"]`);
-            clickedListItem.classList.add('active');
-
-            // Change the fill color of the clicked SVG region
-            region.style.fill = '#ffffff'; // Change to your desired color
-            region.style.fillOpacity = '1'; // Change to your desired color
-
-            if (uzbekistanInfo) {
-                region.style.fill = '#051A3B';
-            }
-
-            // Scroll to the clicked list item
-            clickedListItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         });
-    });
+    }
+
 
     // Add click event listeners to each list item
     regionListItems.forEach(function (item) {
@@ -327,5 +377,83 @@ $(document).ready(function () {
             item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         });
     });
+
+
+    /**********************
+   **********************
+      CONTRACT
+   **********************
+   **********************/
+
+    const itemList = document.getElementById("currency-list");
+    const addItemButton = document.getElementById("currency-add");
+    if (addItemButton) {
+        addItemButton.addEventListener("click", function () {
+            const listItem = document.createElement("li");
+            listItem.classList.add("currency__list-item", "row");
+
+            const col1 = document.createElement("div");
+            col1.classList.add("col-lg-8");
+            const label1 = document.createElement("label");
+            label1.textContent = "Валюта";
+            const input1 = document.createElement("input");
+            input1.setAttribute("type", "text");
+            label1.appendChild(input1);
+            col1.appendChild(label1);
+            listItem.appendChild(col1);
+
+            const col2 = document.createElement("div");
+            col2.classList.add("col-lg-3");
+            const label2 = document.createElement("label");
+            label2.textContent = "Стоимость контракта";
+            const input2 = document.createElement("input");
+            input2.setAttribute("type", "text");
+            label2.appendChild(input2);
+            col2.appendChild(label2);
+            listItem.appendChild(col2);
+
+            const col3 = document.createElement("div");
+            col3.classList.add("currency__list-close", "col-lg-1");
+            const closeButton = document.createElement("button");
+            const closeImg = document.createElement("img");
+            closeImg.setAttribute("src", "images/close-list.svg");
+            closeImg.setAttribute("alt", "");
+            closeButton.appendChild(closeImg);
+            closeButton.addEventListener("click", function () {
+                itemList.removeChild(listItem);
+            });
+            col3.appendChild(closeButton);
+            listItem.appendChild(col3);
+
+            itemList.appendChild(listItem);
+        });
+    }
+
+
+    let contractSelect = document.getElementById('contract');
+    let contractInnerCover = document.getElementById('contract-cover');
+    let contractInner = document.getElementById('contract-inner');
+    let contractInnerAdditional = document.getElementById('contract-additional');
+
+    if (contractInner != null) {
+        contractInner.remove();
+    }
+
+    if (contractInnerAdditional != null) {
+        contractInnerAdditional.remove();
+    }
+
+    contractSelect.addEventListener('change', function () {
+        if (contractSelect.value === 'Contract') {
+            contractInnerAdditional.remove();
+            contractInnerCover.append(contractInner);
+        } else if (contractSelect.value === 'Additional agreement') {
+            contractInner.remove();
+            contractInnerCover.append(contractInnerAdditional);
+        } else {
+            contractInnerAdditional.remove();
+            contractInner.remove();
+        }
+    })
 
 });

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>List with Add and Remove Buttons</title>
+</head>
+<body>
+  <h1>List with Add and Remove Buttons</h1>
+  
+  <button id="addItemButton">Add Item</button>
+  
+  <ul id="itemList"></ul>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const itemList = document.getElementById("itemList");
+      const addItemButton = document.getElementById("addItemButton");
+      
+      addItemButton.addEventListener("click", function() {
+        const listItem = document.createElement("li");
+        listItem.classList.add("currency__list-item", "row");
+        
+        const col1 = document.createElement("div");
+        col1.classList.add("col-lg-8");
+        const label1 = document.createElement("label");
+        label1.textContent = "Валюта";
+        const input1 = document.createElement("input");
+        input1.setAttribute("type", "text");
+        label1.appendChild(input1);
+        col1.appendChild(label1);
+        listItem.appendChild(col1);
+        
+        const col2 = document.createElement("div");
+        col2.classList.add("col-lg-3");
+        const label2 = document.createElement("label");
+        label2.textContent = "Стоимость контракта";
+        const input2 = document.createElement("input");
+        input2.setAttribute("type", "text");
+        label2.appendChild(input2);
+        col2.appendChild(label2);
+        listItem.appendChild(col2);
+        
+        const col3 = document.createElement("div");
+        col3.classList.add("currency__list-close", "col-lg-1");
+        const closeButton = document.createElement("button");
+        const closeImg = document.createElement("img");
+        closeImg.setAttribute("src", "images/close.svg");
+        closeImg.setAttribute("alt", "");
+        closeButton.appendChild(closeImg);
+        closeButton.addEventListener("click", function() {
+          itemList.removeChild(listItem);
+        });
+        col3.appendChild(closeButton);
+        listItem.appendChild(col3);
+        
+        itemList.appendChild(listItem);
+      });
+    });
+  </script>
+</body>
+</html>

@@ -608,7 +608,7 @@
         </div>
     </section>
 
-    <section class="application__fill contracts ">
+    <section class="application__fill contracts">
         <div class="container">
             <div class="application__fill-wrapper">
                 <div class="application__fill-top">
@@ -630,6 +630,7 @@
                 </div>
 
                 <form class="" action="">
+                    <!-- FIRST -->
                     <div class="row application__fill-form">
 
                         <div class="col-lg-4">
@@ -653,7 +654,7 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <label for="message-date">
-                                        <input type="text" name="" id="message-date" placeholder="Дата">
+                                        <input type="date" name="" id="message-date" placeholder="Дата">
                                     </label>
                                 </div>
                             </div>
@@ -680,13 +681,16 @@
                         </div>
                     </div>
 
-                    <div class="row application__fill-form">
+                    <!-- SECOND -->
+                    <div class="row application__fill-form " id="contract-item-2">
 
                         <div class="col-lg-4">
                             <label for="contract">
                                 Контракт или дополнительное соглашение
                                 <select name="" id="contract">
                                     <option value="">Выбор</option>
+                                    <option value="Contract">Контракт</option>
+                                    <option value="Additional agreement">Дополнительное соглашение</option>
                                 </select>
                             </label>
                         </div>
@@ -705,9 +709,70 @@
                             </label>
                         </div>
 
+                        <!-- CONTRACT COVER -->
+                        <div class="contract__inner" id="contract-cover">
+
+                            <!-- CONTRACT INNER -->
+                            <div class="row" id="contract-inner">
+                                <div class="col-lg-4 contract-select">
+                                    <label for="contract-date">
+                                        Дата контракта
+                                        <input type="date" id="contract-date">
+                                    </label>
+                                </div>
+
+                                <div class="col-lg-4 contract-select">
+                                    <label for="contract-number">
+                                        Номер контракта
+                                        <input type="text" id="contract-number">
+                                    </label>
+                                </div>
+
+                                <div class="col-lg-4 contract-select">
+                                    <label for="contract-customer">
+                                        Наименование Заказчика
+                                        <input type="text" id="contract-customer">
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- CONTRACT INNER ADDITIONAL -->
+                            <div class="row" id="contract-additional">
+                                <div class="col-12 contract-select">
+                                    <label for="contract-additional-number">
+                                        Номер контракта от которого идет дополнительное соглашение
+                                        <input type="text" id="contract-additional-number">
+                                    </label>
+                                </div>
+
+                                <div class="col-12 contract-select">
+                                    <label for="contract-additional-date">
+                                        Дата контракта от которого идет дополнительное соглашение
+                                        <input type="date " id="contract-additional-date">
+                                    </label>
+                                </div>
+
+                                <div class="col-lg-4 contract-select">
+                                    <label for="contract-additional-customer">
+                                        Наименование Заказчика
+                                        <input type="text" id="contract-additional-customer">
+                                    </label>
+                                </div>
+
+                                <div class="col-lg-8 contract-select">
+                                    <label for="contract-additional-someone">
+                                        Наименование Подрядчика/Поставщика/Консультанта
+                                        <input type="text" id="contract-additional-someone">
+                                    </label>
+                                </div>
+
+                            </div>
+
+                        </div>
+
                         <div class="col-12">
                             <label for="country">
-                                Страна происхождения Подрядчика/Поставщика/Консультанта
+                                Страна про исхождения Подрядчика/Поставщика/Консультанта
                                 <select name="" id="country">
                                     <option value="">Выбор</option>
                                 </select>
@@ -722,150 +787,77 @@
                         </div>
                     </div>
 
-                    <div class="row application__fill-form cost">
-                        <h2>
-                            Часть 3. Стоимость проекта
-                        </h2>
+                    <!-- THIRD -->
+                    <div class="row application__fill-form">
 
                         <div class="row">
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <label for="own-funds">
-                                        Собственные средства
-                                        <input type="text" name="" id="own-funds">
-                                    </label>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="cost__label">
-                                        <label class="" for="sum-1">
-                                            <input type="radio" name="1" id="sum-1">
-                                            Сум
-                                        </label>
-                                        <label class="" for="dollar-1">
-                                            <input type="radio" name="1" id="dollar-1">
-                                            Доллар
-                                        </label>
-                                    </div>
-                                </div>
+                            <div class="col-12">
+                                <label for="own-funds">
+                                    Наименование проекта
+                                    <select name="" id="">
+                                        <option value="">Выбор</option>
+                                        <option value="1">1</option>
+                                    </select>
+                                </label>
                             </div>
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <label for="bank-loan">
-                                        Банковский кредит
-                                        <input type="text" name="" id="bank-loan">
-                                    </label>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="cost__label">
-                                        <label class="" for="sum-2">
-                                            <input type="radio" name="2" id="sum-2">
-                                            Сум
-                                        </label>
-                                        <label class="" for="dollar-2">
-                                            <input type="radio" name="2" id="dollar-2">
-                                            Доллар
+
+                            <ul class="" id="currency-list">
+                                <li class="currency__list-item row">
+                                    <div class="col-lg-8">
+                                        <label for="">
+                                            Валюта
+                                            <input type="text">
                                         </label>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <label for="foreign-investments">
-                                        Иностранные инвестиции
-                                        <input type="text" name="" id="bank-loan">
-                                    </label>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="cost__label">
-                                        <label class="" for="sum-3">
-                                            <input type="radio" name="3" id="sum-3">
-                                            Сум
-                                        </label>
-                                        <label class="" for="dollar-3">
-                                            <input type="radio" name="3" id="dollar-3">
-                                            Доллар
+                                    <div class="col-lg-3">
+                                        <label for="">
+                                            Стоимость контракта
+                                            <input type="text">
                                         </label>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <label for="total-cost">
-                                        Иностранные инвестиции
-                                        <input type="text" name="" id="total-cost">
-                                    </label>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="cost__label">
-                                        <label class="" for="sum-4">
-                                            <input type="radio" name="4" id="sum-4">
-                                            Сум
-                                        </label>
-                                        <label class="" for="dollar-4">
-                                            <input type="radio" name="4" id="dollar-4">
-                                            Доллар
-                                        </label>
+                                    <div class="currency__list-close col-lg-1">
+                                        <button>
+                                            <img src="images/close-list.svg" alt="">
+                                        </button>
                                     </div>
-                                </div>
+                                </li>
+                            </ul>
+
+                            <a id="currency-add" href="##">
+                                Добавить валюту
+                            </a>
+
+                            <div class="col-12">
+                                <label for="">
+                                    Источник финансирования контракта/дополнительного соглашения
+                                    <select name="" id="">
+                                        <option value="">Выбор</option>
+                                    </select>
+                                </label>
                             </div>
                         </div>
                     </div>
 
+                    <!-- FOURTH -->
                     <div class="row application__fill-form">
-                        <h2>
-                            Часть 4. Дополнительная информация о проекте
-                        </h2>
 
-                        <div class="application__fill-form-cover">
-                            <div class="application__fill-form-item">
-                                <h2>
-                                    Инвестиционная карта
-                                </h2>
-                                <p>
-                                    Укажите территорию на карте
-                                </p>
-
-                                <a href="#" id="map_btn">
-                                    Карта
-                                </a>
-
-                                <a href="#" class="application__fill-form-item-img">
-                                    <img src="images/uzbekistan-application.svg" alt="">
-                                </a>
-                            </div>
-
-                            <div class="application__fill-form-item">
-                                <div class="application__fill-form-item__inner">
-                                    <p>
-                                        Пожалуйста загрузите файлы, относящиеся к инвестиционному проекту – фотографии,
-                                        иллюстрации, картинки (необходимое количество файлов - 1, до 2 Мб) (*.png,
-                                        *.jpg,
-                                        *.jpeg, .*gif). Убедитесь, что изображения и фотографии в хорошем качестве.
-                                    </p>
-
-                                    <label for="documents">
-                                        Загрузить документы
-                                        <input type="file" name="" id="documents">
-                                    </label>
-                                </div>
-
-                                <div class="application__fill-form-item__captcha">
-                                    <label for="captcha">
-                                        Введите код с картинки
-                                        <input type="text" id="captcha">
-                                    </label>
-                                    <div class="captcha">
-                                        <img src="images/captcha.jpg" alt="">
-                                    </div>
-                                </div>
-
-                                <label id="confirm-btn" for="confirm">
-                                    <input type="checkbox" name="" id="confirm">
-                                    Я подтверждаю, что предоставленная информация является правдивой, полной и точной
-                                </label>
-                            </div>
+                        <div class="col-lg-10">
+                            <label for="captcha">
+                                Введите код с картинки
+                                <input type="text" id="captcha">
+                            </label>
                         </div>
 
+                        <div class="col-lg-2 captcha">
+                            <img src="images/captcha.jpg" alt="">
+                        </div>
+
+                        <div class="col-12">
+                            <label for="confirm" id="contract-confirm">
+                                <input type="checkbox" name="" id="confirm">
+                                Я подтверждаю, что предоставленная информация является правдивой, полной и точной
+                            </label>
+                        </div>
 
                         <div class="application__fill-form-modal" id="application-map-modal">
                             <div class="application__fill-form-modal__wrapper">
@@ -928,6 +920,10 @@
                     <a href="#" id="next">
                         Следующй
                     </a>
+
+                    <button id="submit-btn" type="submit">
+                        Отправить
+                    </button>
                 </div>
             </div>
         </div>
