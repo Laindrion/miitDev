@@ -215,8 +215,8 @@ $(document).ready(function () {
     }
 
     function validateInputs() {
-        const inputs = stepContents[currentStep].querySelectorAll('input');
-        const selects = stepContents[currentStep].querySelectorAll('select');
+        let inputs = stepContents[currentStep].querySelectorAll('input:not(:disabled)');
+        let selects = stepContents[currentStep].querySelectorAll('select:not(:disabled)');
 
         for (const input of inputs) {
             if (input.value.trim() === '') {
@@ -230,7 +230,7 @@ $(document).ready(function () {
             }
         }
 
-        return true; // All inputs and selects are filled
+        return true;
     }
 
 
@@ -310,9 +310,76 @@ $(document).ready(function () {
     **********************
     **********************/
     // Get the SVG map element and the list of regions
+    const svgMap2 = document.getElementById('uzbekistan-map-2');
+    const regionListItems2 = document.querySelectorAll('.region__list-item-2');
+
+    // Add click event listeners to each SVG region
+    if (svgMap2) {
+        svgMap2.querySelectorAll('path').forEach(function (region) {
+            region.addEventListener('click', function () {
+                // Reset the style of all list items and SVG regions
+                regionListItems2.forEach(function (item) {
+                    item.classList.remove('active');
+                });
+                svgMap2.querySelectorAll('path').forEach(function (region) {
+                    region.removeAttribute('style');
+                });
+
+                // Get the region name from the data-region attribute
+                const regionName = region.getAttribute('data-region');
+
+                // Add active class to the corresponding list item
+                const clickedListItem = document.querySelector(`.region__list-item-2[data-region="${regionName}"]`);
+                clickedListItem.classList.add('active');
+
+                // Change the fill color of the clicked SVG region
+                region.style.fill = '#ffffff'; // Change to your desired color
+                region.style.fillOpacity = '1'; // Change to your desired color
+
+                // Scroll to the clicked list item
+                clickedListItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            });
+        });
+    }
+
+
+    // Add click event listeners to each list item
+    if (regionListItems2) {
+        regionListItems2.forEach(function (item) {
+            item.addEventListener('click', function () {
+                // Reset the style of all list items and SVG regions
+                regionListItems2.forEach(function (item) {
+                    item.classList.remove('active');
+                });
+                svgMap2.querySelectorAll('path').forEach(function (region) {
+                    region.removeAttribute('style');
+                });
+
+                // Get the region name from the data-region attribute
+                const regionName = item.getAttribute('data-region');
+
+                // Add active class to the corresponding list item
+                const clickedRegion = svgMap2.querySelector(`path[data-region="${regionName}"]`);
+                clickedRegion.style.fill = '#fff'; // Change to your desired color
+                clickedRegion.style.fillOpacity = '1';
+
+                item.classList.add('active');
+
+                // Scroll to the clicked list item
+                item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            });
+        });
+    }
+
+
+
+
+
+    // Get the SVG map element and the list of regions
     const svgMap = document.getElementById('uzbekistan-map');
     const regionListItems = document.querySelectorAll('.region__list-item');
     const uzbekistanInfo = document.getElementById('uzbekistan-info');
+    const investmentStatistics = document.getElementById('investment-statistics');
 
     // Add click event listeners to each SVG region
     if (svgMap) {
@@ -339,6 +406,8 @@ $(document).ready(function () {
 
                 if (uzbekistanInfo) {
                     region.style.fill = '#051A3B';
+                } else if (investmentStatistics) {
+                    region.style.fill = '#051A3B';
                 }
 
                 // Scroll to the clicked list item
@@ -349,34 +418,39 @@ $(document).ready(function () {
 
 
     // Add click event listeners to each list item
-    regionListItems.forEach(function (item) {
-        item.addEventListener('click', function () {
-            // Reset the style of all list items and SVG regions
-            regionListItems.forEach(function (item) {
-                item.classList.remove('active');
+    if (regionListItems) {
+        regionListItems.forEach(function (item) {
+            item.addEventListener('click', function () {
+                // Reset the style of all list items and SVG regions
+                regionListItems.forEach(function (item) {
+                    item.classList.remove('active');
+                });
+                svgMap.querySelectorAll('path').forEach(function (region) {
+                    region.removeAttribute('style');
+                });
+
+                // Get the region name from the data-region attribute
+                const regionName = item.getAttribute('data-region');
+
+                // Add active class to the corresponding list item 
+                const clickedRegion = svgMap.querySelector(`path[data-region="${regionName}"]`);
+                clickedRegion.style.fill = '#fff'; // Change to your desired color
+                clickedRegion.style.fillOpacity = '1';
+
+                if (uzbekistanInfo) {
+                    clickedRegion.style.fill = '#051A3B';
+                } else if (investmentStatistics) {
+                    clickedRegion.style.fill = '#051A3B';
+                }
+
+                item.classList.add('active');
+
+                // Scroll to the clicked list item
+                item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             });
-            svgMap.querySelectorAll('path').forEach(function (region) {
-                region.removeAttribute('style');
-            });
-
-            // Get the region name from the data-region attribute
-            const regionName = item.getAttribute('data-region');
-
-            // Add active class to the corresponding list item
-            const clickedRegion = document.querySelector(`path[data-region="${regionName}"]`);
-            clickedRegion.style.fill = '#fff'; // Change to your desired color
-            clickedRegion.style.fillOpacity = '1';
-
-            if (uzbekistanInfo) {
-                clickedRegion.style.fill = '#051A3B';
-            }
-
-            item.classList.add('active');
-
-            // Scroll to the clicked list item
-            item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         });
-    });
+    }
+
 
 
     /**********************
@@ -396,9 +470,10 @@ $(document).ready(function () {
             col1.classList.add("col-lg-8");
             const label1 = document.createElement("label");
             label1.textContent = "Валюта";
-            const input1 = document.createElement("input");
-            input1.setAttribute("type", "text");
-            label1.appendChild(input1);
+            const originalSelect = document.getElementById('currency_id-1')
+            const clonedSelect = originalSelect.cloneNode(true);
+            clonedSelect.id = 'currency_cloned_id-1'
+            label1.appendChild(clonedSelect);
             col1.appendChild(label1);
             listItem.appendChild(col1);
 
@@ -415,10 +490,6 @@ $(document).ready(function () {
             const col3 = document.createElement("div");
             col3.classList.add("currency__list-close", "col-lg-1");
             const closeButton = document.createElement("button");
-            const closeImg = document.createElement("img");
-            closeImg.setAttribute("src", "images/close-list.svg");
-            closeImg.setAttribute("alt", "");
-            closeButton.appendChild(closeImg);
             closeButton.addEventListener("click", function () {
                 itemList.removeChild(listItem);
             });
@@ -429,31 +500,83 @@ $(document).ready(function () {
         });
     }
 
-
+    // Contract select
     let contractSelect = document.getElementById('contract');
-    let contractInnerCover = document.getElementById('contract-cover');
-    let contractInner = document.getElementById('contract-inner');
-    let contractInnerAdditional = document.getElementById('contract-additional');
+    let contractSelectOption = document.querySelectorAll('.contract-select');
+    let contractAdditionalOption = document.querySelectorAll('.contract-select-additional');
 
-    if (contractInner != null) {
-        contractInner.remove();
+    let contractSelectInput = document.querySelectorAll('.contract-select input');
+    let contractSelectAdditionalInput = document.querySelectorAll('.contract-select-additional input');
+
+    let someonesName = document.getElementById('contract-select-additional-name');
+
+    // Remove inputs
+    if (contractSelectOption != null) {
+        contractSelectOption.forEach(contract => {
+            contract.style.display = 'none';
+        })
     }
 
-    if (contractInnerAdditional != null) {
-        contractInnerAdditional.remove();
+    if (contractAdditionalOption != null) {
+        contractAdditionalOption.forEach(additional => {
+            additional.style.display = 'none';
+        });
     }
 
-    contractSelect.addEventListener('change', function () {
-        if (contractSelect.value === 'Contract') {
-            contractInnerAdditional.remove();
-            contractInnerCover.append(contractInner);
-        } else if (contractSelect.value === 'Additional agreement') {
-            contractInner.remove();
-            contractInnerCover.append(contractInnerAdditional);
-        } else {
-            contractInnerAdditional.remove();
-            contractInner.remove();
-        }
-    })
+    // Add inputs with select input
+    if (contractSelect != null) {
+        contractSelect.addEventListener('change', function () {
+
+            if (contractSelect.value === 'kontrakt') {
+                // Remove the inputs form page
+                contractAdditionalOption.forEach(additional => {
+                    additional.style.display = 'none';
+                });
+                // Disable inputs
+                contractSelectAdditionalInput.forEach(input => {
+                    input.disabled = true;
+                })
+
+                contractSelectInput.forEach(input => {
+                    input.disabled = false;
+                })
+
+                // Add inputs
+                contractSelectOption.forEach(contract => {
+                    contract.style.display = 'block';
+                })
+                someonesName.className = 'col-lg-8';
+            } else if (contractSelect.value === 'dop_sog') {
+                // Remove the inputs form page
+                contractSelectOption.forEach(contract => {
+                    contract.style.display = 'none';
+                })
+                // Disable inputs
+                contractSelectInput.forEach(input => {
+                    input.disabled = true;
+                })
+
+                contractSelectAdditionalInput.forEach(input => {
+                    input.disabled = false;
+                })
+
+                // Add inputs
+                contractAdditionalOption.forEach(additional => {
+                    additional.style.display = 'block';
+                });
+                someonesName.className = 'col-lg-8';
+            } else {
+                contractSelectOption.forEach(contract => {
+                    contract.style.display = 'none';
+
+                })
+                contractAdditionalOption.forEach(additional => {
+                    additional.style.display = 'none';
+                });
+
+                someonesName.className = 'col-lg-4';
+            }
+        })
+    }
 
 });

@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="css/style.min.css">
 </head>
 
@@ -66,9 +67,15 @@
             <nav class="navbar">
                 <div class="container">
                     <div class="navbar__wrapper">
-                        <a class="navbar__font-size" href="#">
-                            <img src="images/font-size.svg" alt="">
-                        </a>
+                        <div class="navbar__interactions">
+                            <a class="navbar__font-size" href="#">
+                                <img src="images/glasses.svg" alt="">
+                            </a>
+                            <a href="#">
+                                <img src="images/sound.svg" alt="">
+                            </a>
+                        </div>
+
 
                         <div class="navbar__inner">
                             <ul class="menu__list">
@@ -646,7 +653,7 @@
                         </div>
                         <div class="col-lg-8">
                             <div class="row">
-                                Указать Номер и дата исходящего письма Инициатора проекта/Заявителя
+                                <span>Указать Номер и дата исходящего письма Инициатора проекта/Заявителя</span>
                                 <div class="col-lg-6">
                                     <label for="message-number">
                                         <input type="text" name="" id="message-number" placeholder="Номер">
@@ -683,91 +690,78 @@
 
                     <!-- SECOND -->
                     <div class="row application__fill-form " id="contract-item-2">
-
-                        <div class="col-lg-4">
-                            <label for="contract">
-                                Контракт или дополнительное соглашение
-                                <select name="" id="contract">
-                                    <option value="">Выбор</option>
-                                    <option value="Contract">Контракт</option>
-                                    <option value="Additional agreement">Дополнительное соглашение</option>
-                                </select>
-                            </label>
-                        </div>
-
-                        <div class="col-lg-4">
-                            <label for="client-name">
-                                Наименование заказчика
-                                <input type="text" name="" id="client-name">
-                            </label>
-                        </div>
-
-                        <div class="col-lg-4">
-                            <label for="someones-name">
-                                Наименование Подрядчика/Поставщика/Консультанта
-                                <input type="text" name="" id="someones-name">
-                            </label>
-                        </div>
-
                         <!-- CONTRACT COVER -->
-                        <div class="contract__inner" id="contract-cover">
+                        <div class="contract__inner row" id="contract-cover">
+
+                            <div class="col-lg-4">
+                                <label for="contract">
+                                    Контракт или дополнительное соглашение
+                                    <select name="" id="contract">
+                                        <option value="">Выбор</option>
+                                        <option value="kontrakt">Контракт</option>
+                                        <option value="dop_sog">Дополнительное соглашение</option>
+                                    </select>
+                                </label>
+                            </div>
 
                             <!-- CONTRACT INNER -->
-                            <div class="row" id="contract-inner">
-                                <div class="col-lg-4 contract-select">
-                                    <label for="contract-date">
-                                        Дата контракта
-                                        <input type="date" id="contract-date">
-                                    </label>
-                                </div>
+                            <div class="col-lg-4 contract-select">
+                                <label for="contract-date">
+                                    Дата контракта
+                                    <input type="date" id="contract-date">
+                                </label>
+                            </div>
 
-                                <div class="col-lg-4 contract-select">
-                                    <label for="contract-number">
-                                        Номер контракта
-                                        <input type="text" id="contract-number">
-                                    </label>
-                                </div>
-
-                                <div class="col-lg-4 contract-select">
-                                    <label for="contract-customer">
-                                        Наименование Заказчика
-                                        <input type="text" id="contract-customer">
-                                    </label>
-                                </div>
+                            <div class="col-lg-4 contract-select">
+                                <label for="contract-number">
+                                    Номер контракта
+                                    <input type="text" id="contract-number">
+                                </label>
                             </div>
 
                             <!-- CONTRACT INNER ADDITIONAL -->
-                            <div class="row" id="contract-additional">
-                                <div class="col-12 contract-select">
-                                    <label for="contract-additional-number">
-                                        Номер контракта от которого идет дополнительное соглашение
-                                        <input type="text" id="contract-additional-number">
-                                    </label>
-                                </div>
-
-                                <div class="col-12 contract-select">
-                                    <label for="contract-additional-date">
-                                        Дата контракта от которого идет дополнительное соглашение
-                                        <input type="date " id="contract-additional-date">
-                                    </label>
-                                </div>
-
-                                <div class="col-lg-4 contract-select">
-                                    <label for="contract-additional-customer">
-                                        Наименование Заказчика
-                                        <input type="text" id="contract-additional-customer">
-                                    </label>
-                                </div>
-
-                                <div class="col-lg-8 contract-select">
-                                    <label for="contract-additional-someone">
-                                        Наименование Подрядчика/Поставщика/Консультанта
-                                        <input type="text" id="contract-additional-someone">
-                                    </label>
-                                </div>
-
+                            <div class="col-lg-4 contract-select-additional">
+                                <label for="contract-additional-number">
+                                    Номер дополнительного соглашения
+                                    <input type="text" id="contract-additional-number">
+                                </label>
                             </div>
 
+                            <div class="col-lg-4 contract-select-additional">
+                                <label for="contract-additional-date">
+                                    Дата дополнительного соглашения
+                                    <input type="date " id="contract-additional-date">
+                                </label>
+                            </div>
+
+                            <div class="col-12 contract-select-additional">
+                                <label for="contract-upcoming-additional-number">
+                                    Номер контракта от которого идет дополнительное соглашение
+                                    <input type="text" id="contract-upcoming-additional-number">
+                                </label>
+                            </div>
+
+                            <div class="col-12 contract-select-additional">
+                                <label for="contract-upcoming-additional-date">
+                                    Дата контракта от которого идет дополнительное соглашение
+                                    <input type="date " id="contract-upcoming-additional-date">
+                                </label>
+                            </div>
+                            <!-- CONTRACT INNER ADDITIONAL ENDS -->
+
+                            <div class="col-lg-4">
+                                <label for="client-name">
+                                    Наименование заказчика
+                                    <input type="text" name="" id="client-name">
+                                </label>
+                            </div>
+
+                            <div class="col-lg-4" id="contract-select-additional-name">
+                                <label for="someones-name">
+                                    Наименование Подрядчика/Поставщика/Консультанта
+                                    <input type="text" id="someones-name">
+                                </label>
+                            </div>
                         </div>
 
                         <div class="col-12">
@@ -775,6 +769,7 @@
                                 Страна про исхождения Подрядчика/Поставщика/Консультанта
                                 <select name="" id="country">
                                     <option value="">Выбор</option>
+                                    <option value="1">One to two</option>
                                 </select>
                             </label>
                         </div>
@@ -806,7 +801,10 @@
                                     <div class="col-lg-8">
                                         <label for="">
                                             Валюта
-                                            <input type="text">
+                                            <select name="" id="currency_id-1">
+                                                <option value="">Выбор</option>
+                                                <option value="1">One to Two</option>
+                                            </select>
                                         </label>
                                     </div>
                                     <div class="col-lg-3">
@@ -817,7 +815,7 @@
                                     </div>
                                     <div class="currency__list-close col-lg-1">
                                         <button>
-                                            <img src="images/close-list.svg" alt="">
+                                            <i class="fa-light fa-xmark"></i>
                                         </button>
                                     </div>
                                 </li>
@@ -832,6 +830,7 @@
                                     Источник финансирования контракта/дополнительного соглашения
                                     <select name="" id="">
                                         <option value="">Выбор</option>
+                                        <option value="1">One to Two</option>
                                     </select>
                                 </label>
                             </div>
@@ -840,6 +839,21 @@
 
                     <!-- FOURTH -->
                     <div class="row application__fill-form">
+
+                        <div class="col-12">
+                            <span>
+                                <p>
+                                    Перечень прилагаемых документов
+                                </p>
+                                <p>
+                                    Прикрепление файлов до 15 файлов. Размер файлов не больше 3 Мб. Доступные форматы
+                                    *.doc, *.xls, *.pdf
+                                </p>
+                            </span>
+                            <label for="document" id="document-btn">
+                                <input type="file" name="" id="document">
+                            </label>
+                        </div>
 
                         <div class="col-lg-10">
                             <label for="captcha">
@@ -857,58 +871,6 @@
                                 <input type="checkbox" name="" id="confirm">
                                 Я подтверждаю, что предоставленная информация является правдивой, полной и точной
                             </label>
-                        </div>
-
-                        <div class="application__fill-form-modal" id="application-map-modal">
-                            <div class="application__fill-form-modal__wrapper">
-                                <div class="application__fill-form-modal__header">
-                                    <h2>
-                                        Инвестиционная карта
-                                    </h2>
-
-                                    <div class="application__fill-form-modal__close"
-                                        id="application__fill-form-modal__close">
-                                        <img src="images/close.svg" alt="">
-                                    </div>
-                                </div>
-
-                                <div class="application__fill-form-modal__body">
-                                    <div class="application__fill-form-modal__markers">
-                                        <div>
-                                            <span style="background: #0B6FA8;"></span>
-                                            <span style="background: #3DA80B;"></span>
-                                            <span style="background: #8912C2;"></span>
-                                            <span style="background: #C2A512;"></span>
-                                            <span style="background: #9A2A23;"></span>
-                                        </div>
-
-                                        <div>
-                                            <a href="#">
-                                                Очистить маркер
-                                            </a>
-                                            <a href="#">
-                                                Получить данные
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="application__fill-form-modal__coordinates">
-                                        <strong>Координаты</strong>Z: 22 C: 26.850443,80.965546
-                                    </div>
-
-                                    <label for="">
-                                        <input type="text" placeholder="Поиск ">
-                                    </label>
-
-                                    <div class="application__fill-form-modal__map">
-                                        <iframe
-                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23974.110824915566!2d69.23290665576172!3d41.314000594850555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8b40d847941d%3A0x5765a18b352df71e!2sTashkent%20City%20Park!5e0!3m2!1sru!2s!4v1690703866853!5m2!1sru!2s"
-                                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                                            referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
                 </form>
