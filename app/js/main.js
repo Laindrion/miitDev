@@ -454,10 +454,10 @@ $(document).ready(function () {
 
 
     /**********************
-   **********************
-      CONTRACT
-   **********************
-   **********************/
+    **********************
+       CONTRACT
+    **********************
+    **********************/
 
     const itemList = document.getElementById("currency-list");
     const addItemButton = document.getElementById("currency-add");
@@ -579,4 +579,54 @@ $(document).ready(function () {
         })
     }
 
+
+    /**********************
+    **********************
+       GALLERY
+    **********************
+    **********************/
+    $('.gallery__container').magnificPopup({
+        delegate: 'a',
+        type: 'image',
+        mainClass: 'mfp-with-zoom mfp-img-mobile',
+        gallery: {
+            enabled: true,
+            navigateByImgClick: true,
+            preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
+        },
+        zoom: {
+            enabled: true,
+            duration: 300, // don't foget to change the duration also in CSS
+            opener: function (element) {
+                return element.find('img');
+            }
+        }
+    });
+
+
+    /*********************
+    **********************
+       VIDEO
+    **********************
+    **********************/
+    $('.video-popup').magnificPopup({
+        type: 'iframe',
+        mainClass: 'mfp-fade',
+    });
+
+
+    let links = document.querySelectorAll('a[href="#"]');
+    let btn = document.querySelectorAll('button');
+
+    links.forEach(link => {
+        link.addEventListener('click', function (event) {
+            event.preventDefault()
+        })
+    })
+
+    btn.forEach(btn => {
+        btn.addEventListener('click', function (event) {
+            event.preventDefault()
+        })
+    })
 });

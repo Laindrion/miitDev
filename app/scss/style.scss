@@ -1,6 +1,7 @@
 @import '../../node_modules/slick-carousel/slick/slick';
 @import '../../node_modules/bootstrap/dist/css/bootstrap';
 @import '../../node_modules/reset.css/reset';
+@import '../../node_modules/magnific-popup/dist/magnific-popup';
 @import url('https://fonts.googleapis.com/css2?family=Arsenal:wght@400;700&display=swap');
 @import '_fonts';
 
@@ -801,6 +802,10 @@ body.modal__open {
             right: 25px;
             top: 50%;
             transform: translateY(-50%);
+        }
+
+        &:hover {
+            color: $white;
         }
     }
 
@@ -2295,7 +2300,7 @@ body.modal__open {
                     position: absolute;
                     top: 50%;
                     left: 50%;
-                    transform: translate(-44%, -50%);
+                    transform: translate(-47%, -50%);
                     display: inline-block;
                     font-size: 30px;
                     color: $link;
@@ -2343,6 +2348,12 @@ body.modal__open {
         flex-direction: row;
         align-items: flex-end;
         justify-content: flex-start;
+    }
+
+
+    .captcha_contacts_button {
+        margin-bottom: 10px;
+        margin-right: 10px;
     }
 }
 
@@ -3114,6 +3125,16 @@ body.modal__open {
             }
         }
     }
+
+
+    .col-12:nth-child(7) label {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .col-12:nth-child(7) .pull-left.captcha-input-2 {
+        width: 100%;
+    }
 }
 
 
@@ -3199,6 +3220,8 @@ body.modal__open {
         display: inline-flex;
         align-items: center;
         margin-bottom: 20px;
+        list-style-type: none;
+        flex-direction: row;
     }
 
     #myTabs>li a.active {
@@ -3834,6 +3857,7 @@ body.modal__open {
             @include fontAs(26px, 700, 120%, $title);
             text-align: center;
             margin-bottom: 30px;
+            width: 100%;
         }
 
         input,
@@ -3849,7 +3873,7 @@ body.modal__open {
             background: transparent;
             padding: 14px;
             @include fontFt(16px, 700, 160%, $link);
-            max-width: 335px;
+            width: 335px;
             margin: 0 auto;
         }
 
@@ -4105,6 +4129,249 @@ body.modal__open {
     & td,
     & tr {
         padding: 10px;
+    }
+
+    .accardion-content a {
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        color: $title ;
+        text-decoration: underline;
+
+        &::after {
+            content: none;
+        }
+    }
+}
+
+
+/**********************
+    **********************
+        OPENDATA
+    **********************
+**********************/
+.opendata {
+    padding-bottom: 353px;
+
+    ul {
+        li {
+            border-radius: 10px;
+            background: $white;
+            box-shadow: 0px 1px 17px 0px rgba(147, 147, 147, 0.12);
+            padding: 24px 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            text-wrap: wrap;
+
+            h4 {
+                @include fontAs(19px, 700, 120%, $title);
+            }
+
+            div {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+
+                span {
+                    @include fontFt(16px, 400, 130%, $text);
+                }
+
+                a {
+                    @include fontFt(16px, 400, 130%, $white);
+                    padding: 5px 13px;
+                    border-radius: 5px;
+                }
+            }
+        }
+    }
+}
+
+/**********************
+    **********************
+        GALLERY
+    **********************
+**********************/
+.gallery {
+    padding-bottom: 273px;
+
+    &__tab {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 40px;
+
+        a {
+            @include fontFt(17px, 700, 160%, $text);
+            padding: 15px 38px;
+            border-radius: 10px;
+            border: 1px solid $text;
+            box-shadow: 0px 1px 17px 0px rgba(228, 228, 228, 0.25);
+            transition: .4s all;
+
+            &.active {
+                color: $active;
+                border-color: $active;
+            }
+
+            &:hover {
+                color: $active;
+                border-color: $active;
+            }
+        }
+    }
+
+    &__item {
+        border-radius: 5px;
+        overflow: hidden;
+        height: 367px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+.mfp-bg {
+    z-index: 99999 !important;
+}
+
+.mfp-wrap {
+    z-index: 99999 !important;
+}
+
+.image-source-link {
+    color: #98C3D1;
+}
+
+.mfp-with-zoom .mfp-container,
+.mfp-with-zoom.mfp-bg {
+    opacity: 0;
+    -webkit-backface-visibility: hidden;
+    /* ideally, transition speed should match zoom duration */
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+.mfp-with-zoom.mfp-ready .mfp-container {
+    opacity: 1;
+}
+
+.mfp-with-zoom.mfp-ready.mfp-bg {
+    opacity: 0.8;
+}
+
+.mfp-with-zoom.mfp-removing .mfp-container,
+.mfp-with-zoom.mfp-removing.mfp-bg {
+    opacity: 0;
+}
+
+/**********************
+    **********************
+        VIDEO
+    **********************
+**********************/
+.video {
+    &__item {
+        border-radius: 5px;
+        overflow: hidden;
+        height: 367px;
+
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(353deg, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.00) 100%);
+            left: 0;
+            top: 0;
+        }
+
+        .play {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 65px;
+            height: 65px;
+            transform: translate(-50%, -50%);
+            background: $active;
+            border-radius: 50%;
+
+            z-index: 1;
+
+            &::after {
+                @include pseudo(url('../images/play.svg'), 22px, 22px);
+                z-index: -1;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            &::before {
+                @include pseudoItem(78px, 78px, rgba(5, 26, 59, 0.33));
+                border-radius: 50%;
+                z-index: -1;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+/**
+ * Simple fade transition,
+ */
+.mfp-fade.mfp-bg {
+    opacity: 0;
+    -webkit-transition: all 0.15s ease-out;
+    -moz-transition: all 0.15s ease-out;
+    transition: all 0.15s ease-out;
+}
+
+.mfp-fade.mfp-bg.mfp-ready {
+    opacity: 0.8;
+}
+
+.mfp-fade.mfp-bg.mfp-removing {
+    opacity: 0;
+}
+
+.mfp-fade.mfp-wrap .mfp-content {
+    opacity: 0;
+    -webkit-transition: all 0.15s ease-out;
+    -moz-transition: all 0.15s ease-out;
+    transition: all 0.15s ease-out;
+}
+
+.mfp-fade.mfp-wrap.mfp-ready .mfp-content {
+    opacity: 1;
+}
+
+.mfp-fade.mfp-wrap.mfp-removing .mfp-content {
+    opacity: 0;
+}
+
+/**********************
+    **********************
+        BRAND
+    **********************
+**********************/
+.brand {
+    p {
+        text-align: left;
+        margin: 15px 0;
     }
 }
 
