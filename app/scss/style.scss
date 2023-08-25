@@ -261,6 +261,11 @@ a:hover {
 
 .logo {
     max-width: 438px;
+
+    img {
+        width: 100%;
+        object-fit: none;
+    }
 }
 
 .navbar__top {
@@ -3135,6 +3140,16 @@ body.modal__open {
     .col-12:nth-child(7) .pull-left.captcha-input-2 {
         width: 100%;
     }
+
+    .col-12:nth-child(7) #captcha_contacts {
+        height: 100%;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+        }
+    }
 }
 
 
@@ -3641,6 +3656,7 @@ body.modal__open {
         padding: 30px;
         background: $bg_dark;
         border-radius: 10px;
+        width: 100%;
     }
 
     &__title {
@@ -3648,6 +3664,7 @@ body.modal__open {
         justify-content: center;
         gap: 30px;
         margin-bottom: 36px;
+        width: 100%;
 
         span {
             @include fontFt(22px, 700, 130%, $title);
@@ -4387,6 +4404,107 @@ body.modal__open {
         @include fontAs(18px, 700, 150%, $text);
         padding-top: 26px;
         padding-bottom: 41px;
+    }
+
+    &__contacts {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+
+        & .telephones,
+        & .emails,
+        & .footer__contacts-inner {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            h2 {
+                @include fontFt(16px, 400, 160%, $text);
+                text-align: left;
+
+                a {
+                    padding: 0;
+                }
+            }
+
+            a {
+                @include fontAs(22px, 700, 160%, $title);
+
+                &:hover {
+                    color: $active;
+                }
+            }
+        }
+
+        & .footer__contacts-inner {
+            a {
+                position: relative;
+                padding-left: 25px;
+
+                &:nth-child(2):before {
+                    @include pseudo(url('../images/phone.svg'), 20px, 21px);
+                    left: 0;
+                    top: 0;
+                    transform: translateY(0);
+                }
+            }
+        }
+
+
+        & .telephones {
+            a {
+                position: relative;
+                padding-left: 25px;
+                max-width: 215px;
+                text-wrap: wrap;
+
+                &:nth-child(2):before {
+                    @include pseudo(url('../images/phone.svg'), 20px, 21px);
+                    left: 0;
+                    top: 0;
+                    transform: translateY(0);
+                }
+            }
+        }
+
+        & .emails {
+            a {
+                display: inline-block;
+                width: 160px;
+                position: relative;
+
+                &:nth-child(2):before {
+                    @include pseudo(url('../images/messages-dark.svg'), 22px, 21px);
+                    left: 0;
+                    top: 15px;
+                    transform: translateY(0);
+                }
+            }
+        }
+
+
+        & .footer__links {
+            .footer__link {
+                padding: 10px 27px;
+                border-radius: 10px;
+                border: 2px solid #051A3C;
+                margin-bottom: 10px;
+
+                @include fontFt(16px, 700, 160%, $link);
+            }
+
+            h2 {
+                @include fontFt(16px, 400, 160%, $text);
+                text-align: left;
+                margin-top: 20px;
+            }
+
+            .social {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+            }
+        }
     }
 }
 
