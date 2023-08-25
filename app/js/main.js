@@ -629,4 +629,55 @@ $(document).ready(function () {
             event.preventDefault()
         })
     })
+
+
+
+    /*********************
+    **********************
+       NEWS POST SLIDER AND GALLERY
+    **********************
+    **********************/
+
+    var $carousel = $('.news__post-slider');
+
+    $carousel
+        .slick({
+            prevArrow: '.arrow-left',
+            nextArrow: '.arrow-right',
+            autoplay: true
+        })
+        .magnificPopup({
+            type: 'image',
+            delegate: 'a:not(.slick-cloned)',
+            mainClass: 'mfp-with-zoom mfp-img-mobile',
+            gallery: {
+                enabled: true,
+                navigateByImgClick: true,
+                preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
+            }, iframe: {
+                patterns: {
+                    youtube: {
+                        src: '%id%&autoplay=1' // Add autoplay parameter
+                    }
+                    // Add more patterns for other iframe types if needed
+                }
+            },
+            zoom: {
+                enabled: true,
+                duration: 300, // don't foget to change the duration also in CSS
+                opener: function (element) {
+                    return element.find('img');
+                }
+            },
+            callbacks: {
+                open: function () {
+                    var current = $carousel.slick('slickCurrentSlide');
+                    $carousel.magnificPopup('goTo', current);
+                },
+                beforeClose: function () {
+                    $carousel.slick('slickGoTo', parseInt(this.index));
+                }
+            }
+        });
+
 });

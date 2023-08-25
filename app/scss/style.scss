@@ -1471,7 +1471,11 @@ body.modal__open {
 **********************/
 .news__post {
     text-wrap: wrap;
-    padding-bottom: 340px;
+    padding-bottom: 100px;
+
+    &-slider-wrapper {
+        position: relative;
+    }
 
     h2 {
         text-align: center;
@@ -1529,6 +1533,59 @@ body.modal__open {
         }
     }
 
+    .news__post-slider__item {
+        border-radius: 10px;
+        height: 400px;
+        overflow: hidden;
+    }
+}
+
+.news__post-slider__wrapper {
+    position: relative;
+    z-index: 0;
+
+    &:hover>.arrow-left,
+    &:hover>.arrow-right {
+        opacity: 1;
+        transition: .4s all;
+    }
+}
+
+.arrow-left {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: rotate(90deg) translateY(-50%);
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    opacity: 0;
+    transition: .4s all;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+}
+
+.arrow-right {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: rotate(-90deg) translateY(-50%);
+    margin-right: 30px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    opacity: 0;
+    transition: .4s all;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
 }
 
 /**********************
@@ -4488,7 +4545,8 @@ body.modal__open {
                 padding: 10px 27px;
                 border-radius: 10px;
                 border: 2px solid #051A3C;
-                margin-bottom: 10px;
+                margin-top: 10px;
+                display: inline-block;
 
                 @include fontFt(16px, 700, 160%, $link);
             }
@@ -4496,7 +4554,6 @@ body.modal__open {
             h2 {
                 @include fontFt(16px, 400, 160%, $text);
                 text-align: left;
-                margin-top: 20px;
             }
 
             .social {
