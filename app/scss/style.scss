@@ -184,6 +184,12 @@ a {
     &-title {
         @include fontAs(40px, 700, 120%, $white);
         margin-top: 27px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
     }
 }
 
@@ -264,7 +270,7 @@ a:hover {
 
     img {
         width: 100%;
-        object-fit: none;
+        object-fit: cover;
     }
 }
 
@@ -309,7 +315,7 @@ a:hover {
 
     &-item-lang {
         position: relative;
-        @include fontAs(22px, 700, 160%, $title);
+        @include fontAs(22px, 700, 120%, $title);
         padding-right: 25px;
         cursor: pointer;
     }
@@ -336,7 +342,7 @@ a:hover {
     }
 
     &-item-lang__inner.active {
-        height: 95px;
+        height: 74px;
     }
 
     &-item-lang__inner a {
@@ -642,7 +648,7 @@ body.modal__open {
     }
 
     .burger__navbar-link {
-        @include fontAs(25px, 700, 160%, #142D56);
+        @include fontAs(25px, 700, 160%, $white);
         display: block;
         padding: 17px 22px;
         border-radius: 10px;
@@ -661,8 +667,12 @@ body.modal__open {
             transition: .4s all;
         }
 
+        &:focus {
+            color: #FE802E;
+        }
+
         &:hover {
-            color: $white;
+            color: #FE802E;
             background: $active;
 
             &::after {
@@ -671,7 +681,7 @@ body.modal__open {
         }
 
         &.active {
-            color: $white;
+            color: #FE802E;
             background: $active;
 
             &::after {
@@ -823,10 +833,12 @@ body.modal__open {
     }
 
     & .slick-dots .slick-active button {
+        padding: 0;
         background: $white;
     }
 
     & .slick-dots li button {
+        padding: 0;
         color: transparent;
         background: transparent;
         width: 21px;
@@ -834,6 +846,7 @@ body.modal__open {
         border-radius: 50%;
         border: 1px solid $white;
         cursor: pointer;
+        display: block;
     }
 }
 
@@ -1034,6 +1047,7 @@ body.modal__open {
             gap: 5px;
 
             li button {
+                padding: 0;
                 color: transparent;
                 background: transparent;
                 border-radius: 50%;
@@ -1477,6 +1491,13 @@ body.modal__open {
         position: relative;
     }
 
+    .news__post-slider__item {
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
     h2 {
         text-align: center;
         @include fontAs(30px, 700, 120%, $title);
@@ -1873,7 +1894,7 @@ body.modal__open {
             }
 
             a.management__mail::before {
-                @include pseudo(url('../images/mail-dark.svg'), 25px, 24px);
+                @include pseudo(url('../images/messages-dark.svg'), 25px, 24px);
             }
         }
 
@@ -2815,6 +2836,7 @@ body.modal__open {
         width: 100%;
         text-align: left;
         padding: 30px 18px;
+        padding-right: 70px;
 
         h3 {
             @include fontAs(19px, 700, 120%, $title);
@@ -3261,6 +3283,7 @@ body.modal__open {
         display: flex;
         flex-direction: column;
         gap: 15px;
+        margin-left: 15px;
 
         li {
             text-align: left;
@@ -3321,6 +3344,9 @@ body.modal__open {
         box-shadow: 0px 1px 17px 0px rgba(147, 147, 147, 0.12);
         border: none;
         width: 100%;
+        display: block;
+        white-space: nowrap;
+        overflow-x: scroll;
     }
 
     tr:last-child {
@@ -3352,6 +3378,11 @@ body.modal__open {
 
     td {
         @include fontFt(17px, 400, 120%, $title);
+        vertical-align: top;
+
+        p {
+            margin: 0 !important;
+        }
     }
 }
 
@@ -3608,6 +3639,10 @@ body.modal__open {
 
 /* Uzbekistan Symbol */
 .uzbekistan__symbol {
+    padding: 0 15px;
+    padding-top: 50px;
+    padding-bottom: 66px;
+
     h3 {
         @include fontFt(19px, 700, 130%, $title);
     }
@@ -3886,6 +3921,7 @@ body.modal__open {
 **********************/
 .advice {
     padding-bottom: 147px;
+    padding: 0 15px;
 
     h3 {
         @include fontFt(17px, 700, 130%, $title);
@@ -3966,6 +4002,27 @@ body.modal__open {
     }
 }
 
+.advice .col-lg-12:nth-child(7) {
+    display: flex;
+    gap: 10px;
+
+    .captcha-input-2 {
+        width: 100%;
+    }
+
+    .captcha-main {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        #captcha_contacts {
+            img {
+                height: 100%;
+            }
+        }
+    }
+}
+
 
 /**********************
     **********************
@@ -3988,6 +4045,7 @@ body.modal__open {
     .investment__img {
         width: 162px;
         height: 162px;
+        margin: 0 auto;
 
         img {
             width: 100%;
@@ -4120,6 +4178,7 @@ body.modal__open {
         width: 100%;
         text-align: left;
         padding: 30px 18px;
+        padding-right: 70px;
 
         @include fontAs(19px, 700, 120%, $title);
 
@@ -4452,6 +4511,62 @@ body.modal__open {
 
 /**********************
     **********************
+        CONTACTS CHANGE
+    **********************
+**********************/
+.contracts_change {
+    .col-lg-4:last-child {
+        display: flex;
+        align-items: flex-end;
+    }
+
+    button {
+        @include fontFt(16px, 700, 160%, $link);
+        padding: 14px 54px;
+        border-radius: 10px;
+        border: 1px solid $link;
+        box-shadow: 0px 1px 17px 0px rgba(228, 228, 228, 0.25);
+        background: transparent;
+        width: 100%;
+    }
+}
+
+
+
+/**********************
+    **********************
+        CONTENT BLOCK
+    **********************
+**********************/
+
+.content-block {
+    p {
+        @include fontFt(18px, 400, 130%, $text);
+        margin: 15px 0;
+
+        strong {
+            @include fontFt(18px, 700, 130%, $title);
+        }
+    }
+
+    .exp-btn {
+        margin: 15px 0;
+        border: none;
+        border-radius: 10px;
+        background: $white;
+        box-shadow: 0px 1px 17px 0px rgba(147, 147, 147, 0.12);
+        width: 100%;
+        text-align: left;
+        padding: 17px 18px;
+        display: block;
+        margin: 15px 0;
+        cursor: pointer;
+    }
+}
+
+
+/**********************
+    **********************
         FOOTER
     **********************
 **********************/
@@ -4518,7 +4633,7 @@ body.modal__open {
                 &:nth-child(2):before {
                     @include pseudo(url('../images/phone.svg'), 20px, 21px);
                     left: 0;
-                    top: 0;
+                    top: 5px;
                     transform: translateY(0);
                 }
             }
@@ -4527,13 +4642,13 @@ body.modal__open {
         & .emails {
             a {
                 display: inline-block;
-                width: 160px;
+                width: 180px;
                 position: relative;
 
                 &:nth-child(2):before {
                     @include pseudo(url('../images/messages-dark.svg'), 22px, 21px);
                     left: 0;
-                    top: 15px;
+                    top: 7px;
                     transform: translateY(0);
                 }
             }
@@ -4554,6 +4669,7 @@ body.modal__open {
             h2 {
                 @include fontFt(16px, 400, 160%, $text);
                 text-align: left;
+                margin-bottom: 5px;
             }
 
             .social {
@@ -4592,9 +4708,19 @@ body.modal__open {
     .region__list {
         margin-top: 20px;
     }
+
+    .post__wrapper {}
 }
 
 @media (max-width: 1200px) {
+    .menu__list {
+        display: none;
+    }
+
+    .navbar__wrapper {
+        padding: 15px 0;
+    }
+
     .recent {
         margin-top: -10%;
 
@@ -4628,16 +4754,79 @@ body.modal__open {
     }
 }
 
+@media (max-width: 1180px) {
+    .section__header-title {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 1110px) {
+
+    .burger__navbar-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .burger__navbar .tab-content.active {
+        position: static;
+        margin: 0;
+        margin-top: 20px;
+        padding: 0;
+        padding-left: 30px;
+    }
+
+    .burger__navbar ul:first-child {
+        border: none;
+        padding: 0;
+    }
+
+    .burger__navbar .tab-content a {
+        font-size: 16px;
+    }
+
+    .burger__navbar .burger__navbar-link {
+        font-size: 16px;
+    }
+}
+
 @media (max-width: 992px) {
+
+    .header.sticky+.main {
+        padding-top: 130px;
+    }
+
     .header {
         .menu__list {
             display: none;
         }
 
-        .navbar__top-item {
+        .navbar__top-item:not(.navbar__top-item.lang) {
             display: none;
         }
+
+        .navbar__top-wrapper {
+            gap: 20px;
+        }
+
     }
+
+    .navbar__inner-items #navbar-search input {
+        padding: 15px 25px;
+    }
+
+
+    .hero__slider-item__content {
+        left: 20px;
+    }
+
+    .hero__slider-img {
+        min-height: 78vh;
+    }
+
+    .hero .slick-dots {
+        top: 500px;
+        left: 20px;
+    }
+
 
     .application__fill-top {
         flex-direction: column;
@@ -4672,6 +4861,17 @@ body.modal__open {
         max-width: 100%;
         width: 100%;
     }
+
+
+    .footer__contacts {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .footer__contacts-inner {
+        align-items: flex-start;
+    }
 }
 
 
@@ -4688,6 +4888,19 @@ body.modal__open {
             width: 100%;
         }
     }
+
+    .hero__title {
+        font-size: 30px;
+    }
+
+    .hero__text,
+    .hero p {
+        font-size: 15px;
+    }
+
+    .hero__btn {
+        font-size: 15px;
+    }
 }
 
 @media (max-width: 700px) {
@@ -4700,6 +4913,10 @@ body.modal__open {
             max-width: 100%;
             width: 100%;
         }
+    }
+
+    .management__date {
+        font-size: 13px;
     }
 
     .management__img {}
@@ -4717,9 +4934,94 @@ body.modal__open {
     }
 }
 
+@media (max-width: 540px) {
+
+    .management__content-links a {
+        font-size: 15px;
+    }
+
+    .hero .slick-dots {
+        top: 460px;
+    }
+
+    .investment__statistics .region__list-item__info {
+        flex-direction: column;
+    }
+}
+
 @media (max-width: 520px) {
     .services__top {
         flex-direction: column;
         gap: 40px;
+    }
+}
+
+@media (max-width: 450px) {
+    .recent__item {
+        flex-direction: column-reverse;
+        width: 100%;
+    }
+
+    .recent__img {
+        width: 100%;
+    }
+
+    .recent__title {
+        max-width: 100%;
+    }
+
+    .recent__item:not(:last-child)::after {
+        content: none;
+    }
+
+    .section__header-title {
+        font-size: 23px;
+    }
+
+    .burger__navbar {
+        top: 85px;
+    }
+}
+
+@media (max-width: 375px) {
+    .navbar__inner-items #navbar-search input {
+        padding: 15px 25px;
+    }
+
+    .burger__navbar {
+        top: 80px;
+    }
+
+    .burger__navbar .tab-content.active {
+        padding: 0;
+    }
+
+    .hero__slider-item__content {
+        padding-top: 50px;
+    }
+
+    .hero .slick-dots {
+        top: 400px;
+        left: 20px;
+    }
+
+    .advice form button {
+        max-width: 100%;
+        width: 100%;
+        margin: 0 15px;
+    }
+}
+
+@media (max-width: 290px) {
+    .burger__navbar {
+        top: 75px;
+    }
+
+    .hero__title {
+        font-size: 25px;
+    }
+
+    .interactive__icon {
+        width: 100px;
     }
 }

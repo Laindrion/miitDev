@@ -66,7 +66,8 @@ $(document).ready(function () {
     $('.hero__slider').slick({
         arrows: false,
         dots: true,
-        fade: true
+        fade: true,
+        autoplay: true
     });
 
 
@@ -623,13 +624,6 @@ $(document).ready(function () {
             event.preventDefault()
         })
     })
-
-    btn.forEach(btn => {
-        btn.addEventListener('click', function (event) {
-            event.preventDefault()
-        })
-    })
-
 
 
     /*********************
